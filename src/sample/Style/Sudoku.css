@@ -1,0 +1,7 @@
+.combo-box .cell:selected {
+    -fx-text-fill: rgba(255, 0, 0, 0);
+}
+
+.combo-box .cell:pressed {
+    -fx-text-fill: black;
+}

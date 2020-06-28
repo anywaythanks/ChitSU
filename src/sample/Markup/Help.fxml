@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.29797979797979796" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControlHelp">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TreeView fx:id="tree" prefHeight="398.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="listScroll" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="460.0">
+         <children>
+            <ScrollPane layoutX="9.0" prefHeight="398.0" prefWidth="499.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1472.0" prefWidth="610.0">
+                     <children>
+                        <Label layoutX="20.0" layoutY="21.0" prefHeight="50.0" prefWidth="423.0" text="В судоку играют на квадратном поле 9 на 9 клеток. Само поле поделено на районы (квадраты 3 на 3) ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="167.0">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="57.0" prefHeight="57.0" prefWidth="560.0" text="Также в начале игры известны                ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="15.0">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="324.0" fitWidth="324.0" layoutX="66.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/picture2.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="470.0" prefHeight="50.0" prefWidth="576.0" text="Цель судоку - заполнить все пустые клетки с помощью цифр 1-9 (по одной цифре на клетку) по следующим правилам: " wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="531.0" prefHeight="21.0" prefWidth="522.0" text="1. Цифра может присутствовать только один раз в каждой строчке." AnchorPane.leftAnchor="60.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="51.0" fitWidth="320.0" layoutX="70.0" layoutY="588.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/picture3.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="214.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/v.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="159.0" layoutY="558.0" text="Можно">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="157.0" layoutY="643.0" text="Нельзя">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="214.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/x.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="51.0" fitWidth="320.0" layoutX="70.0" layoutY="672.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/picture4.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="58.0" layoutY="755.0" prefHeight="21.0" prefWidth="522.0" text="2. Цифра может присутствовать только один раз в каждом столбике." AnchorPane.leftAnchor="60.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="320.0" fitWidth="36.0" layoutX="88.0" layoutY="850.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/picture5.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="320.0" fitWidth="36.0" layoutX="333.0" layoutY="850.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/picture6.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="116.0" layoutY="805.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/v.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="809.0" text="Можно" AnchorPane.leftAnchor="60.0">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="357.0" layoutY="806.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/x.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="301.0" layoutY="809.0" text="Нельзя">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="34.0" layoutY="1179.0" prefHeight="36.0" prefWidth="531.0" text="3. Цифра может присутствовать только один раз в каждом районе." wrapText="true" AnchorPane.leftAnchor="60.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="106.0" fitWidth="106.0" layoutX="61.0" layoutY="1259.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/picture7.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="106.0" fitWidth="106.0" layoutX="292.0" layoutY="1259.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/picture8.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="174.0" layoutY="1289.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/v.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="90.0" layoutY="1236.0" text="Можно">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="406.0" layoutY="1282.5000114440918" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/x.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="323.0" layoutY="1236.0" text="Нельзя">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="11.0" layoutY="1384.0" prefHeight="79.0" prefWidth="576.0" text="Проще говоря, одна и та же цифра может присутствовать только один раз в каждой строчке, столбике и районе." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="variants_5" layoutX="253.0" layoutY="71.0" text="задания">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1131.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="542.06103515625" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="20.0" layoutY="234.2841796875" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="241.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="36.0" layoutY="34.0" prefHeight="76.0" prefWidth="393.0" text="Для сохранения нужно: нажать на кнопку Судоку, а потом в открывшемся окне кликнуть на клавишу Сохранить, или же нажать на клавишу S, удерживая при этом клавишу Ctrl." wrapText="true" AnchorPane.bottomAnchor="941.0" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="508.0" prefHeight="31.0" prefWidth="393.0" text="После этого откроется окно для сохранения." wrapText="true" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="181.0" fitWidth="393.0" layoutX="20.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="344.83680725097656" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/helpsave1.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="717.0" prefHeight="52.0" prefWidth="393.0" text="Если окно было вызвано по ошибке, его можно закрыть, нажав на крестик или кнопку Cancel(Стрелка 2)." wrapText="true" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="766.0" prefHeight="31.0" prefWidth="393.0" text="Для сохранения судоку нужно:" wrapText="true" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="802.0" prefHeight="92.0" prefWidth="476.0" text="1)Ввести название сохранения в специальное поле(Стрелка 1).&#10;Имя не должно быть больше 30 символов.&#10;&#10;2)Нажать на кнопку ОК(Стрелка 3)." AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="899.0" prefHeight="57.0" prefWidth="393.0" text="Если такая сохраненная запись уже существует, то вам предложат заменить уже существующую." wrapText="true" AnchorPane.bottomAnchor="81.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="955.0" prefHeight="52.0" prefWidth="393.0" text="После выполнения всех этапов вас уведомят об успешном сохранении." wrapText="true" AnchorPane.bottomAnchor="30.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="106.0" prefWidth="393.0" text="Эта функция запоминает текущее расположение цифр в клетках, а также режим, в котором было произведено сохранение. Это по большей части нужно для сохранения своих почти решенных судоку или же почти созданных. Загрузка выполняется          ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="load_1" layoutX="310.0" layoutY="96.0" text="тут">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content></ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1202.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="28.0" layoutY="157.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="233.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="393.0" text="Для загрузки нужно: нажать на кнопку Судоку, а потом в открывшемся окне кликнуть на клавишу Загрузить, или же нажать на клавишу L удерживая при этом клавишу Ctrl" wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="508.0" prefHeight="31.0" prefWidth="393.0" text="После этого откроется окно для загрузки." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="181.0" fitWidth="393.0" layoutX="20.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="123.0">
+                           <image>
+                              <Image url="@../Pictures/helpload1.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="717.0" prefHeight="52.0" prefWidth="393.0" text="Если окно было вызвано по ошибке, его можно закрыть, нажав на крестик или кнопку Cancel(Стрелка 2)." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="766.0" prefHeight="31.0" prefWidth="393.0" text="Для загрузки сохраненной записи нужно:" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="802.0" prefHeight="64.0" prefWidth="476.0" text="1)Выбрать сохранение в специальном поле(Стрелка 1).&#10;&#10;2)Нажать на кнопку ОК(Стрелка 3)." AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="20.0" prefWidth="447.0" text="Эта функция загружает или удаляет                          ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="save_1" layoutX="288.0" layoutY="16.0" text="сохраненения">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Label layoutX="20.0" layoutY="883.0" prefHeight="31.0" prefWidth="393.0" text="Для удаления сохранения нужно:" wrapText="true">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="930.0" prefHeight="158.0" prefWidth="476.0" text="1)Выбрать сохранение в специальном поле(Стрелка 1).&#10;&#10;2)Нажать на кнопку удалить(Стрелка 4), &#10;чтобы удалить текущее сохранение.&#10;Или на Удалить все сохранение(Стрелка 5), &#10;чтобы удалить все сохранения.&#10; &#10;3)Подтвердить удаление." AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="1107.0" prefHeight="52.0" prefWidth="393.0" text="После выполнения всех этапов вам сообщат об успешном удалении или удачной загрузке." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="123.0">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="616.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="28.0" layoutY="171.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="233.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="393.0" text="Для очистки нужно: нажать на кнопку Судоку, а потом в открывшемся окне кликнуть на клавишу Очистить, или же нажать на клавишу C, удерживая при этом клавишу Ctrl." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="438.0" text="Эта функция очищает поле от всех введенных цифр." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="78.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="76.0" prefWidth="486.0" text="После нажатия появится окно с подтверждением об очистке поля и уже после нажатия кнопки ОК поле очистится от всех цифр, кроме                ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="variants_1" layoutX="115.0" layoutY="572.0" text="заданий">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="616.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="24.0" layoutY="188.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="237.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="393.0" text="Для решения нужно: нажать на кнопку Судоку, а потом в открывшемся окне кликнуть на клавишу Решить, или же нажать на клавишу D, удерживая при этом клавишу Ctrl." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="438.0" text="Эта функция полностью решает судоку." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="78.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="76.0" prefWidth="486.0" text="После нажатия судоку будет решена, а                 так и останутся на поле.&#10;Также функция показывает                          ли судоку.&#10;" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="variants_6" layoutX="308.0" layoutY="530.0" text="задания">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="tradition_1" layoutX="226.0" layoutY="572.0" text="традиционна">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="616.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="73.0" layoutY="202.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="188.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="393.0" text="Для генерации нужно: нажать на кнопку Судоку, а потом в открывшемся окне кликнуть на клавишу Сгенерировать." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="498.0" text="Эта функция генерирует случайную                             судоку." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="76.0" prefWidth="486.0" text="После нажатия нужно выбрать сложность судоку. &#10;Режим игры автоматически переходит в                         ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="tradition_2" layoutX="284.0" layoutY="10.0" text="традиционную">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="classic_1" layoutX="320.0" layoutY="551.0" text="классический">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="98.0" layoutY="141.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="163.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="393.0" text="Для перехода нужно: нажать на кнопку Режим, а потом в открывшемся окне кликнуть на клавишу Классическая игра." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="498.0" text="Эта функция задаёт классический режим игры." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="146.0" prefWidth="486.0" text="После нажатия все цифры, которые не были                     ,&#10;становятся ими.  Т.е. с клетками становится невозможно взаимодействовать. Также будет появлятся уведомление о прохождении игры.                       и                подстраиваются под этот режим.&#10;Он предназначен для классического решения судоку." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="variants_3" layoutX="354.0" layoutY="530.0" text="заданиями">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="clear_1" layoutX="272.0" layoutY="593.0" text="очистка">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="save_2" layoutX="165.0" layoutY="593.0" text="Сохранение">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="93.0" layoutY="154.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="168.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="393.0" text="Для перехода нужно: нажать на кнопку Режим, а потом в открывшемся окне кликнуть на клавишу Творческий режим." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="498.0" text="Эта функция задаёт творческий режим игры." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="159.0" prefWidth="486.0" text="После нажатия все цифры, которые были   &#10;перестают быть ими.  Т.е. с клетками становится возможно взаимодействовать. В творческом режиме уведомлений о прохождении игры нет. &#10;Режим предназначен для создания судоку." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="variants_4" layoutX="334.0" layoutY="530.0" text="заданиями">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="717.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="100.0" layoutY="169.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="161.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="424.0" text="Для перехода нужно: нажать на кнопку Режим, а потом в открывшемся окне кликнуть на клавишу Обучающий режим." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="498.0" text="Эта функция задаёт обучающий режим игры." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="190.0" prefWidth="486.0" text="При нажатии ведет себя аналогично с                           режимом игры, однако, для перехода, судоку на поле должна быть                           .&#10;После перехода блокируется                       и                 судоку, а функция                  сменяется                      . &#10;Также при неправильном нажатии на клетку будет появлятся ошибка, которая объяснит, почему такой вариант невозможен.&#10;А как пользоваться обучающим режимом объясняется      ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="tradition_3" layoutX="55.0" layoutY="572.0" text="традиционной">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="classic_3" layoutX="301.0" layoutY="530.0" text="классическим">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="res_1" layoutX="84.0" layoutY="614.0" text="решения">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="mainInstruction_1" layoutX="430.0" layoutY="677.0" text="тут">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="save_3" layoutX="235.0" layoutY="593.0" text="сохранение">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="load_2" layoutX="339.0" layoutY="593.0" text="загрузка">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="prompt_1" layoutX="235.0" layoutY="614.0" text="подсказкой">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content></ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="824.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="20.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="110.0">
+                           <image>
+                              <Image url="@../Pictures/menu3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="184.0" layoutY="193.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="77.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="58.0" prefHeight="87.0" prefWidth="393.0" text="Для включения или же выключения нужно: нажать на кнопку Опции, а потом в открывшемся окне кликнуть на клавишу Выделение неправильных клеток, или же нажать на клавишу W удерживая при этом клавишу Ctrl." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="44.0" prefWidth="498.0" text="Эта функция включает или выключает выделение неправильных клеток" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="577.0" prefHeight="44.0" prefWidth="486.0" text="Включенная функция выделяет цифры, поставленные не по                   ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="regulations_1" layoutX="38.0" layoutY="594.0" text="правилам">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <ImageView fitHeight="36.0" fitWidth="320.0" layoutX="21.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="156.0">
+                           <image>
+                              <Image url="@../Pictures/picture4.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="667.0" prefHeight="44.0" prefWidth="486.0" text="Выключенная - ничего не выделяет." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="36.0" fitWidth="320.0" layoutX="57.0" layoutY="700.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="156.0">
+                           <image>
+                              <Image url="@../Pictures/helpNum.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1178.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="20.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="110.0">
+                           <image>
+                              <Image url="@../Pictures/menu3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="199.0" layoutY="207.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="62.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="69.0" prefHeight="76.0" prefWidth="486.0" text="Для включения или же выключения нужно: нажать на кнопку Опции, а потом в открывшемся окне кликнуть на клавишу Выделение всех цифр, или же нажать на клавишу H, удерживая при этом клавишу Ctrl." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="44.0" prefWidth="498.0" text="Эта функция включает или выключает выделение совпадающих клеток." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="577.0" prefHeight="44.0" prefWidth="486.0" text="Включенная функция выделяет цифры, совпадающие с символом в клетке, на которой находится мышь." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="212.0" fitWidth="212.0" layoutX="21.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="156.0">
+                           <image>
+                              <Image url="@../Pictures/214214414.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_LEFT" layoutX="26.0" layoutY="845.0" prefHeight="44.0" prefWidth="486.0" text="Выключенная - выделяет только одну клетку и то, если она не является                  ." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="212.0" fitWidth="212.0" layoutX="60.0" layoutY="897.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="264.0">
+                           <image>
+                              <Image url="@../Pictures/helpNumV1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="212.0" fitWidth="212.0" layoutX="294.0" layoutY="897.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/helpNumV4.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="variants_7" layoutX="84.0" layoutY="862.0" text="заданием">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content></ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1125.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="20.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="110.0">
+                           <image>
+                              <Image url="@../Pictures/menu3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="184.0" layoutY="222.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="77.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="69.0" prefHeight="76.0" prefWidth="498.0" text="Для включения или же выключения нужно: нажать на кнопку Опции, а потом в открывшемся окне кликнуть на клавишу Показывать кандидатов, или же нажать на клавишу K, удерживая при этом клавишу Ctrl." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="44.0" prefWidth="498.0" text="Эта функция включает или выключает выделение                      ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="545.0" prefHeight="76.0" prefWidth="486.0" text="Включенная функция выделяет кандидатов, в окне выбора элемента для заполнения клетки. Цвета можно изменить в                      ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="212.0" fitWidth="212.0" layoutX="21.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="156.0">
+                           <image>
+                              <Image url="@../Pictures/helpNumV2.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_LEFT" layoutX="26.0" layoutY="845.0" prefHeight="44.0" prefWidth="486.0" text="Выключенная - ничего не выделяет." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="212.0" fitWidth="212.0" layoutX="60.0" layoutY="889.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/helpNumV3.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="linkCandidates_1" layoutX="394.0" layoutY="22.0" text="кандидатов">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="opt_1" layoutX="30.0" layoutY="583.0" text="настройках">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2599.0" prefWidth="536.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="52.0" prefWidth="320.0" text="Эта функция настраивает цвета для отображения                        ." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="linkCandidates_2" layoutX="116.0" layoutY="36.0" text="кандидатов">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="26.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+                           <image>
+                              <Image url="@../Pictures/menu3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="152.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="46.0" layoutY="54.0" prefHeight="76.0" prefWidth="431.0" text="Для открытия настроек нужно: нажать на кнопку Опции, а потом в открывшемся окне кликнуть на клавишу Настройки, или же нажать на клавишу S, удерживая при этом клавиши Ctrl и Alt." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="528.0" prefHeight="31.0" prefWidth="393.0" text="После этого откроется окно для сохранения." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="353.0" fitWidth="465.0" layoutX="30.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+                           <image>
+                              <Image url="@../Pictures/helpSet.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="40.0" layoutY="907.0" prefHeight="52.0" prefWidth="393.0" text="Если окно было вызвано по ошибке, его можно закрыть, нажав на крестик или кнопку Отмена(Стрелка 2)." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="946.0" prefHeight="128.0" prefWidth="476.0" text="Клавиша ОК(Стрелка 1) - устанавливает заданные пользователем настройки и закрывает окно.&#10;Клавиша Применить(Стрелка 3) - устанавливает заданные пользователем настройки, оставляя окно открытым.&#10;Клавиша Сбросить(Стрелка 4) - сбрасывает настройки до стандартных&#10;" wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="1081.0" prefHeight="76.0" prefWidth="320.0" text="Стрелка 5 показывает цвет базового шрифта в элементе. Т.е. цвет элемента, когда отключено                                            ." wrapText="true" AnchorPane.leftAnchor="40.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="1437.0" prefHeight="76.0" prefWidth="320.0" text="Стрелка 6 показывает цвет шрифта не кандидата. Т.е. цвет элемента, который не является кандидатом." wrapText="true" AnchorPane.leftAnchor="40.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="1513.0" prefHeight="76.0" prefWidth="320.0" text="Стрелка 7 показывает цвет шрифта кандидата. Т.е. цвет элемента, который является кандидатом." wrapText="true" AnchorPane.leftAnchor="40.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="274.0" fitWidth="329.0" layoutX="40.0" layoutY="1142.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="40.0">
+                           <image>
+                              <Image url="@../Pictures/helpNumV3_1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="274.0" fitWidth="329.0" layoutX="40.0" layoutY="1599.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="40.0">
+                           <image>
+                              <Image url="@../Pictures/helpNumV2_1.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="linkCandidates_3" layoutX="162.0" layoutY="1117.0" text="выделение кандидатов">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="1885.0" prefHeight="52.0" prefWidth="320.0" text="Стрелка 8 показывает на основной цвет всех символов в клетке." wrapText="true" AnchorPane.leftAnchor="40.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="118.0" fitWidth="131.0" layoutX="120.0" layoutY="1977.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="120.0">
+                           <image>
+                              <Image url="@../Pictures/helpNumV3_3.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="1932.0" prefHeight="52.0" prefWidth="320.0" text="Стрелка 9 показывает на цвет ошибочных символов в клетке." wrapText="true">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="2105.0" prefHeight="52.0" prefWidth="320.0" text="Стрелка 10 показывает на цвет совпадающих символов в клетке." wrapText="true">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="274.0" fitWidth="329.0" layoutX="40.0" layoutY="2157.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="40.0">
+                           <image>
+                              <Image url="@../Pictures/helpNumV2_2.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="2449.0" prefHeight="52.0" prefWidth="393.0" text="Стрелка 11 показывает на прозрачность заблокированных элементов." wrapText="true" AnchorPane.leftAnchor="40.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="40.0" layoutY="2502.0" prefHeight="91.0" prefWidth="393.0" text="Стрелка 12 показывает на возможность переключения окна с игрой в полноэкранный режим (отображение на весь экран пользователя)." wrapText="true">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="460.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="108.0">
+                           <image>
+                              <Image url="@../Pictures/picture9.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="14.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="123.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="16.0" layoutY="14.0" prefHeight="76.0" prefWidth="393.0" text="Чтобы совершить манипуляции с судоку, нужно: нажать на кнопку Судоку в верхней части программы." wrapText="true" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="460.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="108.0">
+                           <image>
+                              <Image url="@../Pictures/picture9.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="59.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="126.0" AnchorPane.topAnchor="125.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="26.0" layoutY="24.0" prefHeight="76.0" prefWidth="393.0" text="Чтобы поменять режим игры, нужно: нажать на кнопку Режим в верхней части программы. " wrapText="true" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="535.0" prefWidth="460.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="108.0">
+                           <image>
+                              <Image url="@../Pictures/picture9.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="107.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="124.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="36.0" layoutY="34.0" prefHeight="76.0" prefWidth="393.0" text="Чтобы изменить некоторые опции, нужно: нажать на кнопку Опции в верхней части программы." wrapText="true" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="460.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="75.0" prefHeight="130.0" prefWidth="355.0" text="Задания - это набор некоторых чисел, уже расставленных на поле. Вам не разрешено удалять или изменять задания – они расположены таким способом, при котором существует единственное решение головоломки." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="10.0" prefHeight="39.0" prefWidth="460.0" text="Задания" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="460.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="75.0" prefHeight="130.0" prefWidth="355.0" text="Традиционной считают судоку, которая имеет сетку 9х9, а все                 заполнены таким образом, что она имеет только одно решение. Проще говоря судоку имеет только одно логическое решение. " wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="10.0" prefHeight="39.0" prefWidth="460.0" text="Традиционность судоку" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="variants_2" layoutX="91.0" layoutY="92.0" text="задания">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="460.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="75.0" prefHeight="130.0" prefWidth="355.0" text="Число или буква, которая может быть в данной клетке. Считается, что если кандидат один, то именно это значение будет в клетке. Два кандидата в клетке называют парой. Три кандидата — трио. И так далее." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="10.0" prefHeight="39.0" prefWidth="460.0" text="Кандидат." wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="536.0">
+                     <children>
+                        <Label layoutX="60.0" layoutY="50.0" prefHeight="147.0" prefWidth="454.0" text="В самом начале нужно сделать судоку в &#10;режиме или                              ее.&#10;Далее нужно нажимать на клетки в поле и выбирать варианты. Учтите, что повторное нажатие на тот же номер убирает его из клетки.&#10;Когда вы правильно заполните головоломку в &#10;режиме игры, вас уведомят о прохождении." wrapText="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="22.0">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="212.0" fitWidth="212.0" layoutX="60.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="264.0">
+                           <image>
+                              <Image url="@../Pictures/helpNumV3.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="26.0" layoutY="14.0" prefHeight="37.0" prefWidth="454.0" text="Если вы хотите просто сыграть." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="423.0" prefHeight="37.0" prefWidth="454.0" text="Если вы хотите научиться играть в судоку." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="62.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="creative_1" layoutX="361.0" layoutY="46.0" text="творческом">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="classic_2" layoutX="410.0" layoutY="151.0" text="классическом">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="generation_1" layoutX="148.0" layoutY="67.0" text="сгенерировать">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Label layoutX="45.0" layoutY="460.0" prefHeight="170.0" prefWidth="454.0" text="В самом начале нужно сделать традиционную судоку, для этого сгенерируйте ее.&#10;Далее перейдите в                       режим игры. &#10;После этого попрубуйте решить судоку. Если возникают трудности или не понятно, что делать дальше, кликните на                   . &#10;Если вы ошибитесь, программа объяснит вам, почему нельзя ставить символ." wrapText="true">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="prompt_2" layoutX="62.0" layoutY="562.0" text="подсказку">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="teaching_1" layoutX="188.0" layoutY="499.0" text="обучающий">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="616.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="17.0" layoutY="218.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="244.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="393.0" text="Для выхода нужно: нажать на кнопку Судоку, а потом в открывшемся окне кликнуть на клавишу Выход." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="498.0" text="Эта функция выходит из игры." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="28.0" prefWidth="256.0" text="После нажатия игра закроется." wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="260.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="398.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="616.0" prefWidth="536.0">
+                     <children>
+                        <ImageView fitHeight="426.0" fitWidth="406.0" layoutX="16.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="47.0">
+                           <image>
+                              <Image url="@../Pictures/menu1_1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="418.0" fitWidth="275.0" layoutX="24.0" layoutY="188.882568359375" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="237.0">
+                           <image>
+                              <Image url="@../Pictures/arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="40.0" prefHeight="76.0" prefWidth="429.0" text="Для получения подсказки нужно: нажать на кнопку Судоку, а потом в открывшемся окне кликнуть на клавишу Подсказка, или же нажать на клавишу D, удерживая при этом клавишу Ctrl." wrapText="true" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="21.0" prefWidth="438.0" text="Эта функция подсказывает следующий ход." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="78.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="534.0" prefHeight="76.0" prefWidth="486.0" text="После нажатия появится окно, в котором разъяснят по какой причине был поставлен именно этот символ.&#10;Также на самом поле этот символ будет выделен.&#10;" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children></AnchorPane>
+   </items>
+</SplitPane>

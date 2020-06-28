@@ -1,0 +1,23 @@
+.label {
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+    -fx-font-size: 11;
+}
+
+.combo-box {
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+    -fx-font-size: 11;
+}
+
+.button {
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+    -fx-font-size: 11;
+}
+
+#deleteAll {
+    -fx-font-size: 9;
+}
+
+#text {
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+    -fx-font-size: 18;
+}

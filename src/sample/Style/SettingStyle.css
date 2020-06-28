@@ -1,0 +1,11 @@
+.label{
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+    -fx-font-size: 10;
+}
+.button{
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+    -fx-font-size: 10;
+}
+.radio-button{
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+}
