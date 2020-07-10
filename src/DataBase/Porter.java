@@ -15,32 +15,13 @@ import java.util.HashSet;
  */
 public class Porter {
     /**
-     * Объект {@link ManagerShell}, который передает сохранения.
-     */
-    private ManagerShell importShell;
-    /**
-     * Объект {@link ManagerShell}, который принимает сохранения.
-     */
-    private ManagerShell exportShell;
-
-
-    /**
-     * Создание объекта {@link Porter}.
-     *
-     * @param exportShell объект {@link Porter#exportShell}, который передает сохранения.
-     * @param importShell объект {@link Porter#importShell}, который принимает сохранения.
-     */
-    public Porter(ManagerShell exportShell, ManagerShell importShell) {
-        this.importShell = importShell;
-        this.exportShell = exportShell;
-    }
-
-    /**
      * Портировать настройки игры.
      *
+     * @param exportShell объект {@link Porter}, который передает сохранения.
+     * @param importShell объект {@link Porter}, который принимает сохранения.
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
-    public void portSetting() throws SQLException {
+    public static void portSetting(ManagerShell exportShell, ManagerShell importShell) throws SQLException {
         ResultSet setting = exportShell.read(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}});
         String[][] settingStrings = new String[Creator.COLUMNS_TABLE_SETTING.length - 1][2];
 
@@ -55,9 +36,11 @@ public class Porter {
     /**
      * Портировать цвета игры.
      *
+     * @param exportShell объект {@link Porter}, который передает сохранения.
+     * @param importShell объект {@link Porter}, который принимает сохранения.
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
-    public void portColors() throws SQLException {
+    public static void portColors(ManagerShell exportShell, ManagerShell importShell) throws SQLException {
         ResultSet colors = exportShell.read(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.COLUMNS_TABLE_COLORS[0][0], "1"}});
         String[][] colorStrings = new String[Creator.COLUMNS_TABLE_COLORS.length - 1][2];
 
@@ -72,10 +55,12 @@ public class Porter {
     /**
      * Получить все совпадающие названия сохранений в базах данных.
      *
+     * @param exportShell объект {@link Porter}, который передает сохранения.
+     * @param importShell объект {@link Porter}, который принимает сохранения.
      * @return совпадающие названия сохранений в виде String[][].
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
-    public String[] getMatchingSaveName() throws SQLException {
+    public static String[] getMatchingSaveName(ManagerShell exportShell, ManagerShell importShell) throws SQLException {
         ResultSet save = importShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]);
         ResultSet otherSave = exportShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]);
         ArrayList<String> arrayListSave = new ArrayList<>();
@@ -99,9 +84,11 @@ public class Porter {
     /**
      * Портировать все сохранения игры.
      *
+     * @param exportShell объект {@link Porter}, который передает сохранения.
+     * @param importShell объект {@link Porter}, который принимает сохранения.
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
-    public void portAllSave() throws SQLException {
+    public static void portAllSave(ManagerShell exportShell, ManagerShell importShell) throws SQLException {
         ResultSet otherSave = exportShell.read(Creator.NAME_TABLE_SAVE_SUDOKU);
         String[][] saveStrings = new String[Creator.COLUMNS_TABLE_SAVE_SUDOKU.length - 1][2];
         while (otherSave.next()) {
@@ -124,10 +111,12 @@ public class Porter {
      * <p>
      * Также стоит учитывать, что сохранения, которые уже есть в базе, будут переписаны.
      *
-     * @param leaveSave эти сохранения игры ни в коем случае не должны быть портированы.
+     * @param exportShell объект {@link Porter}, который передает сохранения.
+     * @param importShell объект {@link Porter}, который принимает сохранения.
+     * @param leaveSave   эти сохранения игры ни в коем случае не должны быть портированы.
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
-    public void portSave(String... leaveSave) throws SQLException {
+    public static void portSave(ManagerShell exportShell, ManagerShell importShell, String... leaveSave) throws SQLException {
         ResultSet otherSave = exportShell.read(Creator.NAME_TABLE_SAVE_SUDOKU);
         String[][] saveStrings = new String[Creator.COLUMNS_TABLE_SAVE_SUDOKU.length - 1][2];
         while (otherSave.next()) {
@@ -135,7 +124,7 @@ public class Porter {
                 saveStrings[i - 1][0] = Creator.COLUMNS_TABLE_SAVE_SUDOKU[i][0];
                 saveStrings[i - 1][1] = otherSave.getString(Creator.COLUMNS_TABLE_SAVE_SUDOKU[i][0]);
             }
-            if (!Equals.objectEq(saveStrings[0][1], leaveSave))
+            if (!Equals.objectEq(saveStrings[0][1], (Object) leaveSave))
                 if (importShell.checkVal(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], saveStrings[0][1]}})) {
                     importShell.overwrite(Creator.NAME_TABLE_SAVE_SUDOKU,
                             new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], saveStrings[0][1]}},
@@ -144,41 +133,5 @@ public class Porter {
                     importShell.write(Creator.NAME_TABLE_SAVE_SUDOKU,
                             saveStrings);
         }
-    }
-
-    /**
-     * Задать значение {@link Porter#importShell}.
-     *
-     * @param importShell {@link Porter#importShell}.
-     */
-    public void setImportShell(ManagerShell importShell) {
-        this.importShell = importShell;
-    }
-
-    /**
-     * Задать значение {@link Porter#exportShell}.
-     *
-     * @param exportShell {@link Porter#exportShell}.
-     */
-    public void setExportShell(ManagerShell exportShell) {
-        this.exportShell = exportShell;
-    }
-
-    /**
-     * Получить {@link Porter#importShell}.
-     *
-     * @return {@link Porter#importShell}.
-     */
-    public ManagerShell getImportShell() {
-        return importShell;
-    }
-
-    /**
-     * Получить {@link Porter#exportShell}.
-     *
-     * @return {@link Porter#exportShell}.
-     */
-    public ManagerShell getExportShell() {
-        return exportShell;
     }
 }

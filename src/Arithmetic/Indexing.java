@@ -14,7 +14,7 @@ public class Indexing {
      * @param maxSize1 максимально возможный размер строки массива.
      * @return индекс массива.
      */
-    public static int coordinateMassive(int coordinate1, int coordinate2, int maxSize1) {
+    public static int indexCells(int coordinate1, int coordinate2, int maxSize1) {
         return maxSize1 * coordinate1 + coordinate2;
     }
 
