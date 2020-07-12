@@ -1,5 +1,7 @@
 package DataBase;
 
+import sample.Main;
+
 import java.io.File;
 import java.sql.SQLException;
 
@@ -28,7 +30,9 @@ public class Creator {
     /**
      * Путь до базы данных с сохранениями.
      */
-    public static final String PATH_TO_CATALOG_SAVE = "/home/any/saver/";
+    public static final String PATH_TO_CATALOG_SAVE = System.getProperty("os.name").equals("Linux") ?
+            System.getenv("HOME") + File.separator :
+            System.getenv("APPDATA") + File.separator + "ChitSU" + File.separator;
     /**
      * Название системы базы данных.
      * В этом случае SQLite.
@@ -37,7 +41,7 @@ public class Creator {
     /**
      * Названия файла базы данных.
      */
-    public static final String NAME_DB = "Save.s3db";
+    public static final String NAME_DB = System.getProperty("os.name").equals("Linux") ? ".ChitSU_Save.s3db" : "Save.s3db";
     /**
      * Абсолютный путь до бызы данных.
      */

@@ -1,0 +1,89 @@
+.combo-box > .list-cell {
+    -fx-alignment: center;
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+
+.arrow-button {
+    -fx-opacity: 0.0;
+    -fx-font-size: 0.0001;
+}
+
+#sudoku {
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+}
+
+#Ex {
+    -fx-font-family: "Han Zi"; /* Здесь вводим имя шрифта */
+}
+
+#Ex .accelerator-text {
+    -fx-text-fill: rgba(0, 0, 0, 0.7);
+    -fx-font-family: "";
+}
+
+#Ex .accelerator-text {
+
+}
+
+.combo-box-base:disabled,
+.list-cell:disabled {
+    -fx-opacity: 1; /* Прозрачность заблокированного элемента(0.89 = 89% прозрачности), кроме фона*/
+}
+
+.combo-box:hover {
+    -fx-opacity: 1; /* Прозрачность элемента при наведении*/
+}
+
+.ColBase .list-cell:filled:selected {
+    -fx-text-fill: #603813; /* Базовый цвет шрифта */
+}
+
+.ColFB .list-cell:filled:selected {
+    -fx-text-fill: rgba(96, 56, 19, 0.7); /* Цвет шрифта для заблокированного элемента */
+}
+
+.ColFcoi .list-cell:filled:selected {
+    -fx-text-fill: #ff0000; /* Цвет шрифта для выделения неправильной клетки */
+}
+
+.ColFBcoi .list-cell:filled:selected {
+    -fx-text-fill: rgba(255, 0, 0, 0.7); /* Цвет шрифта для выделения заблокированной неправильной клетки */
+}
+
+.ColFN .list-cell:filled:selected {
+    -fx-text-fill: #156d75; /* Цвет шрифта для выделения cовпадающих клеток */
+}
+
+.ColBFN .list-cell:filled:selected {
+    -fx-text-fill: #156d75; /* Цвет шрифта для выделения заблокированных cовпадающих клеток */
+}
+
+.menu-bar .container .menu:openvertically .label {
+    -fx-text-fill: black; /* Цвет шрифта в меню */
+}
+
+.combo-box {
+    -fx-font-size: 24; /* Размер шрифта в выпадающем меню */
+}
+
+.combo-box > .list-cell {
+    -fx-font-size: 30; /* Размер шрифта в самом окне */
+}
+
+#Fon {
+    -fx-background-color: white; /* Цвет фона*/
+}
+
+.menu-bar {
+    -fx-background-color: white; /* Цвет верхнего меню.*/
+}
+
+.context-menu {
+    -fx-background-color: white; /* Цвет выпадающего меню.*/
+}
+
+.separator *.line {
+    -fx-background-color: white; /* Цвет сепаратора(делящей линии меню) меню.*/
+    -fx-border-style: solid; /* стиль сепаратора(делящей линии меню) меню.*/
+    -fx-border-width: 5px; /* размер сепаратора(делящей линии меню) меню.*/
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import sample.Sudoku?>
+
+<AnchorPane fx:id="Fon" prefHeight="600.0" prefWidth="600" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+            <children>
+                <ImageView fitHeight="175.0" fitWidth="270.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <image>
+                        <Image url="@Pictures/sakura1.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="175.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.rightAnchor="0.0">
+                    <image>
+                        <Image url="@Pictures/sakura1.png" />
+                    </image>
+                </ImageView>
+                <GridPane fx:id="container" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <AnchorPane maxHeight="0.0" maxWidth="0.0" style="-fx-background-color: rgba(0,0,0,0);">
+                            <children>
+                                 <Sudoku fx:id="sudoku" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+        <MenuBar fx:id="Ex" layoutY="3.0" prefHeight="24.0" prefWidth="821.0" style="-fx-border-width: 0px;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Судоку">
+                    <items>
+                        <MenuItem fx:id="save" mnemonicParsing="false" text="Сохранить"></MenuItem>
+                        <MenuItem fx:id="load" mnemonicParsing="false" text="Загрузить" />
+                        <MenuItem fx:id="clear" mnemonicParsing="false" text="Очистить" />
+                        <MenuItem fx:id="resh" mnemonicParsing="false" text="Решить" />
+                        <Menu fx:id="generation" mnemonicParsing="false" text="Сгенерировать">
+                            <items>
+                                <MenuItem fx:id="generationE" mnemonicParsing="false" text="Легкую" />
+                                <MenuItem fx:id="generationM" mnemonicParsing="false" text="Среднюю" />
+                                <MenuItem fx:id="generationH" mnemonicParsing="false" text="Сложную" />
+                            </items>
+                        </Menu>
+                        <MenuItem fx:id="exit" mnemonicParsing="false" text="Выход" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Режим">
+                    <items>
+                        <RadioMenuItem fx:id="classic" mnemonicParsing="false" text="Классическая игра" />
+                        <RadioMenuItem fx:id="creative" mnemonicParsing="false" selected="true" text="Творческий режим" />
+                        <RadioMenuItem fx:id="learning" mnemonicParsing="false" text="Обучающий режим" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Опции">
+                    <items>
+                        <RadioMenuItem fx:id="highlighting" mnemonicParsing="false" selected="true" text="Выделение неправильных клеток" />
+                        <RadioMenuItem fx:id="highlightingAllNum" mnemonicParsing="false" text="Подсветка совпадающих цифр" />
+                        <RadioMenuItem fx:id="showCandidates" mnemonicParsing="false" text="Показыать кандидатов" />
+                        <MenuItem fx:id="ColorSetting" mnemonicParsing="false" text="Настройки" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Помощь">
+                    <items>
+                        <MenuItem fx:id="help" mnemonicParsing="false" text="Помощь" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Справка">
+                    <items>
+                        <MenuItem fx:id="information" mnemonicParsing="false" text="О программе" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+</AnchorPane>
