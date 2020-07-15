@@ -34,7 +34,7 @@ public class Creator {
      * Путь до базы данных с сохранениями.
      */
     public static final String PATH_TO_CATALOG_SAVE = System.getProperty("os.name").equals("Linux") ?
-            System.getenv("HOME") + File.separator + ".config" + File.separator + GAME_NAME :
+            System.getenv("HOME") + File.separator + ".config" + File.separator + GAME_NAME + File.separator:
             System.getenv("APPDATA") + File.separator + GAME_NAME + File.separator;
     /**
      * Название системы базы данных.
