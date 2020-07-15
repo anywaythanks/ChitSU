@@ -26,13 +26,16 @@ public class Creator {
      * А тажке для метода {@link Creator#isDirectoriesBeenCreated()}.
      */
     private static boolean directoriesBeenCreated;
-
+    /**
+     * Название игры
+     */
+    public static final String GAME_NAME = "ChitSU";
     /**
      * Путь до базы данных с сохранениями.
      */
     public static final String PATH_TO_CATALOG_SAVE = System.getProperty("os.name").equals("Linux") ?
-            System.getenv("HOME") + File.separator :
-            System.getenv("APPDATA") + File.separator + "ChitSU" + File.separator;
+            System.getenv("HOME") + File.separator + ".config" + File.separator + GAME_NAME :
+            System.getenv("APPDATA") + File.separator + GAME_NAME + File.separator;
     /**
      * Название системы базы данных.
      * В этом случае SQLite.
