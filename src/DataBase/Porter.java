@@ -22,7 +22,7 @@ public class Porter {
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
     public static void portSetting(ManagerShell exportShell, ManagerShell importShell) throws SQLException {
-        ResultSet setting = exportShell.read(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}});
+        ResultSet setting = exportShell.read(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.ID, "1"}});
         String[][] settingStrings = new String[Creator.COLUMNS_TABLE_SETTING.length - 1][2];
 
         for (int i = 1; i < Creator.COLUMNS_TABLE_SETTING.length; ++i) {
@@ -30,7 +30,7 @@ public class Porter {
             settingStrings[i - 1][1] = setting.getString(Creator.COLUMNS_TABLE_SETTING[i][0]);
         }
 
-        importShell.overwrite(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}}, settingStrings);
+        importShell.overwrite(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.ID, "1"}}, settingStrings);
     }
 
     /**
@@ -41,7 +41,7 @@ public class Porter {
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
     public static void portColors(ManagerShell exportShell, ManagerShell importShell) throws SQLException {
-        ResultSet colors = exportShell.read(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.COLUMNS_TABLE_COLORS[0][0], "1"}});
+        ResultSet colors = exportShell.read(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.ID, "1"}});
         String[][] colorStrings = new String[Creator.COLUMNS_TABLE_COLORS.length - 1][2];
 
         for (int i = 1; i < Creator.COLUMNS_TABLE_COLORS.length; ++i) {
@@ -49,7 +49,7 @@ public class Porter {
             colorStrings[i - 1][1] = colors.getString(Creator.COLUMNS_TABLE_COLORS[i][0]);
         }
 
-        importShell.overwrite(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.COLUMNS_TABLE_COLORS[0][0], "1"}}, colorStrings);
+        importShell.overwrite(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.ID, "1"}}, colorStrings);
     }
 
     /**
@@ -61,17 +61,17 @@ public class Porter {
      * @throws SQLException нет таблиц или столбцов в базах данных.
      */
     public static String[] getMatchingSaveName(ManagerShell exportShell, ManagerShell importShell) throws SQLException {
-        ResultSet save = importShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]);
-        ResultSet otherSave = exportShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]);
+        ResultSet save = importShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.NAME_SAVE);
+        ResultSet otherSave = exportShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.NAME_SAVE);
         ArrayList<String> arrayListSave = new ArrayList<>();
         ArrayList<String> arrayListOtherSave = new ArrayList<>();
         HashSet<String> matchingSave = new HashSet<>();
 
         while (save.next()) {
-            arrayListSave.add(save.getString(Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]));
+            arrayListSave.add(save.getString(Creator.NAME_SAVE));
         }
         while (otherSave.next()) {
-            arrayListOtherSave.add(otherSave.getString(Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]));
+            arrayListOtherSave.add(otherSave.getString(Creator.NAME_SAVE));
         }
         for (String s : arrayListSave)
             for (String os : arrayListOtherSave)
@@ -96,9 +96,9 @@ public class Porter {
                 saveStrings[i - 1][0] = Creator.COLUMNS_TABLE_SAVE_SUDOKU[i][0];
                 saveStrings[i - 1][1] = otherSave.getString(Creator.COLUMNS_TABLE_SAVE_SUDOKU[i][0]);
             }
-            if (importShell.checkVal(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], saveStrings[0][1]}}))
+            if (importShell.checkVal(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.NAME_SAVE, saveStrings[0][1]}}))
                 importShell.overwrite(Creator.NAME_TABLE_SAVE_SUDOKU,
-                        new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], saveStrings[0][1]}},
+                        new String[][]{{Creator.NAME_SAVE, saveStrings[0][1]}},
                         saveStrings);
             else
                 importShell.write(Creator.NAME_TABLE_SAVE_SUDOKU,
@@ -125,9 +125,9 @@ public class Porter {
                 saveStrings[i - 1][1] = otherSave.getString(Creator.COLUMNS_TABLE_SAVE_SUDOKU[i][0]);
             }
             if (!Equals.objectEq(saveStrings[0][1], (Object) leaveSave))
-                if (importShell.checkVal(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], saveStrings[0][1]}})) {
+                if (importShell.checkVal(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.NAME_SAVE, saveStrings[0][1]}})) {
                     importShell.overwrite(Creator.NAME_TABLE_SAVE_SUDOKU,
-                            new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], saveStrings[0][1]}},
+                            new String[][]{{Creator.NAME_SAVE, saveStrings[0][1]}},
                             saveStrings);
                 } else
                     importShell.write(Creator.NAME_TABLE_SAVE_SUDOKU,

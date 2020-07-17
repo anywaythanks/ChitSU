@@ -49,6 +49,6 @@ public class Deleter {
      * @throws SQLException такого названия нет. Или нет таблицы  {@link Creator#NAME_TABLE_SAVE_SUDOKU}.
      */
     public void deleteSave(String nameSave) throws SQLException {
-        managerShell.delete(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], nameSave}});
+        managerShell.delete(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.NAME_SAVE, nameSave}});
     }
 }

@@ -51,11 +51,11 @@ public class Overwriter {
 
         managerShell.overwrite(Creator.NAME_TABLE_SAVE_SUDOKU,
                 new String[][]{
-                        {Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], nameSudoku}},
+                        {Creator.NAME_SAVE, nameSudoku}},
                 new String[][]{
-                        {Creator.COLUMNS_TABLE_SAVE_SUDOKU[2][0], mode + ""},
-                        {Creator.COLUMNS_TABLE_SAVE_SUDOKU[3][0], sizeBox + ""},
-                        {Creator.COLUMNS_TABLE_SAVE_SUDOKU[4][0], stringBuilder.toString()}
+                        {Creator.MODE, mode + ""},
+                        {Creator.SIZE_BOX, sizeBox + ""},
+                        {Creator.CIPHER_SUDOKU, stringBuilder.toString()}
                 });
     }
 

@@ -62,10 +62,10 @@ public class Saver {
                 stringBuilder.append((char) (sudoku[i][j] + (disableCell[i][j] ? Creator.DIFFERENCE_CODE : 0)));
 
         managerShell.write(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{
-                {Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], nameSudoku},
-                {Creator.COLUMNS_TABLE_SAVE_SUDOKU[2][0], mode + ""},
-                {Creator.COLUMNS_TABLE_SAVE_SUDOKU[3][0], sizeBox + ""},
-                {Creator.COLUMNS_TABLE_SAVE_SUDOKU[4][0], stringBuilder.toString()}
+                {Creator.NAME_SAVE, nameSudoku},
+                {Creator.MODE, mode + ""},
+                {Creator.SIZE_BOX, sizeBox + ""},
+                {Creator.CIPHER_SUDOKU, stringBuilder.toString()}
         });
     }
 
@@ -93,20 +93,20 @@ public class Saver {
             for (int j = 0; j < sudoku.length; ++j)
                 stringBuilder.append((char) (sudoku[i][j] + (disableCell[i][j] ? Creator.DIFFERENCE_CODE : 0)));
 
-        if (!managerShell.checkVal(Creator.NAME_TABLE_AUTOSAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[0][0], "1"}}))
+        if (!managerShell.checkVal(Creator.NAME_TABLE_AUTOSAVE_SUDOKU, new String[][]{{Creator.ID, "1"}}))
             managerShell.write(Creator.NAME_TABLE_AUTOSAVE_SUDOKU, new String[][]{
-                    {Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[1][0], mode + ""},
-                    {Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[2][0], sizeBox + ""},
-                    {Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[3][0], stringBuilder.toString()}
+                    {Creator.MODE, mode + ""},
+                    {Creator.SIZE_BOX, sizeBox + ""},
+                    {Creator.CIPHER_SUDOKU, stringBuilder.toString()}
             });
         else
             managerShell.overwrite(Creator.NAME_TABLE_AUTOSAVE_SUDOKU,
                     new String[][]{
-                            {Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[0][0], "1"}},
+                            {Creator.ID, "1"}},
                     new String[][]{
-                            {Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[1][0], mode + ""},
-                            {Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[2][0], ((int) Math.sqrt(sudoku.length)) + ""},
-                            {Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[3][0], stringBuilder.toString()}});
+                            {Creator.MODE, mode + ""},
+                            {Creator.SIZE_BOX, ((int) Math.sqrt(sudoku.length)) + ""},
+                            {Creator.CIPHER_SUDOKU, stringBuilder.toString()}});
     }
 
     /**
@@ -130,12 +130,12 @@ public class Saver {
             setting[i][0] = Creator.COLUMNS_TABLE_SETTING[i + 1][0];
             setting[i][1] = Logic.booleanToInt(settings[i]) + "";
         }
-        if (!managerShell.checkVal(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}}))
+        if (!managerShell.checkVal(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.ID, "1"}}))
             managerShell.write(Creator.NAME_TABLE_SETTING, setting);
         else
             managerShell.overwrite(
                     Creator.NAME_TABLE_SETTING,
-                    new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}},
+                    new String[][]{{Creator.ID, "1"}},
                     setting);
     }
 
@@ -160,12 +160,12 @@ public class Saver {
             setting[i][0] = Creator.COLUMNS_TABLE_COLORS[i + 1][0];
             setting[i][1] = colors[i];
         }
-        if (!managerShell.checkVal(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.COLUMNS_TABLE_COLORS[0][0], "1"}}))
+        if (!managerShell.checkVal(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.ID, "1"}}))
             managerShell.write(Creator.NAME_TABLE_COLORS, setting);
         else
             managerShell.overwrite(
                     Creator.NAME_TABLE_COLORS,
-                    new String[][]{{Creator.COLUMNS_TABLE_COLORS[0][0], "1"}},
+                    new String[][]{{Creator.ID, "1"}},
                     setting);
     }
 
@@ -177,11 +177,11 @@ public class Saver {
      * @throws SQLException только если не существует таблиц({@link Creator#NAME_TABLE_AUTOSAVE_SUDOKU}, {@link Creator#NAME_TABLE_SETTING}, {@link Creator#NAME_TABLE_COLORS}), или же они неверно заполнены.
      */
     public void checkSave() throws SQLException {
-        if (!managerShell.checkVal(Creator.NAME_TABLE_AUTOSAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[0][0], "1"}}))
+        if (!managerShell.checkVal(Creator.NAME_TABLE_AUTOSAVE_SUDOKU, new String[][]{{Creator.ID, "1"}}))
             clearAutoSave();
-        if (!managerShell.checkVal(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}}))
+        if (!managerShell.checkVal(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.ID, "1"}}))
             clearSaveSetting();
-        if (!managerShell.checkVal(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.COLUMNS_TABLE_COLORS[0][0], "1"}}))
+        if (!managerShell.checkVal(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.ID, "1"}}))
             clearColors();
     }
 

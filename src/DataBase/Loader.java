@@ -60,10 +60,10 @@ public class Loader {
      * @throws SQLException нет таблицы {@link Creator#NAME_TABLE_SAVE_SUDOKU}, или сохранения с таким именем.
      */
     public BufferLoader loadSave(String nameSave) throws SQLException {
-        ResultSet save = managerShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0], nameSave}});
-        String stringSudoku = save.getString(Creator.COLUMNS_TABLE_SAVE_SUDOKU[4][0]);
-        int sizeBox = save.getInt(Creator.COLUMNS_TABLE_SAVE_SUDOKU[3][0]);
-        int mode = save.getInt(Creator.COLUMNS_TABLE_SAVE_SUDOKU[2][0]);
+        ResultSet save = managerShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.NAME_SAVE, nameSave}});
+        String stringSudoku = save.getString(Creator.CIPHER_SUDOKU);
+        int sizeBox = save.getInt(Creator.SIZE_BOX);
+        int mode = save.getInt(Creator.MODE);
         int size = sizeBox * sizeBox;
         int[][] cellsSudoku = new int[size][size];
         boolean[][] disableCells = new boolean[size][size];
@@ -91,11 +91,11 @@ public class Loader {
      * @throws SQLException нет таблицы {@link Creator#NAME_TABLE_SAVE_SUDOKU}.
      */
     public String[] loadAllNameSave() throws SQLException {
-        ResultSet save = managerShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]);
+        ResultSet save = managerShell.read(Creator.NAME_TABLE_SAVE_SUDOKU, Creator.NAME_SAVE);
         ArrayList<String> arrays = new ArrayList<>();
 
         while (save.next()) {
-            arrays.add(save.getString(Creator.COLUMNS_TABLE_SAVE_SUDOKU[1][0]));
+            arrays.add(save.getString(Creator.NAME_SAVE));
         }
 
         return arrays.toArray(new String[0]);
@@ -108,10 +108,10 @@ public class Loader {
      * @throws SQLException нет таблицы {@link Creator#NAME_TABLE_AUTOSAVE_SUDOKU}.
      */
     public BufferLoader loadAutosave() throws SQLException {
-        ResultSet save = managerShell.read(Creator.NAME_TABLE_AUTOSAVE_SUDOKU, new String[][]{{Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[0][0], "1"}});
-        String stringSudoku = save.getString(Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[3][0]);
-        int sizeBox = save.getInt(Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[2][0]);
-        int mode = save.getInt(Creator.COLUMNS_TABLE_AUTOSAVE_SUDOKU[1][0]);
+        ResultSet save = managerShell.read(Creator.NAME_TABLE_AUTOSAVE_SUDOKU, new String[][]{{Creator.ID, "1"}});
+        String stringSudoku = save.getString(Creator.CIPHER_SUDOKU);
+        int sizeBox = save.getInt(Creator.SIZE_BOX);
+        int mode = save.getInt(Creator.MODE);
         int size = sizeBox * sizeBox;
 
         int[][] cellsSudoku = new int[size][size];
@@ -139,7 +139,7 @@ public class Loader {
      * @throws SQLException нет таблицы {@link Creator#NAME_TABLE_SETTING}.
      */
     public boolean[] loadSetting() throws SQLException {
-        ResultSet setting = managerShell.read(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}});
+        ResultSet setting = managerShell.read(Creator.NAME_TABLE_SETTING, new String[][]{{Creator.ID, "1"}});
         boolean[] settingBool = new boolean[Creator.COLUMNS_TABLE_SETTING.length - 1];
 
         for (int i = 0; i < Creator.COLUMNS_TABLE_SETTING.length - 1; ++i)
@@ -154,7 +154,7 @@ public class Loader {
      * @throws SQLException нет таблицы {@link Creator#NAME_TABLE_COLORS}.
      */
     public String[] loadColors() throws SQLException {
-        ResultSet colors = managerShell.read(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.COLUMNS_TABLE_SETTING[0][0], "1"}});
+        ResultSet colors = managerShell.read(Creator.NAME_TABLE_COLORS, new String[][]{{Creator.ID, "1"}});
         String[] colorsString = new String[Creator.COLUMNS_TABLE_COLORS.length - 1];
 
         for (int i = 0; i < Creator.COLUMNS_TABLE_COLORS.length - 1; ++i)
