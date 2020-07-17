@@ -15,7 +15,7 @@ public class Error implements FlowWindow {
     private Controller controller;
 
     @Override
-    public Stage setStage(String title) throws IOException {
+    public void setStage(String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Error.fxml"));
         loader.load();
 
@@ -29,10 +29,10 @@ public class Error implements FlowWindow {
         scene.getStylesheets().add(getClass().getResource("Error.css").toExternalForm());
         stage.setScene(scene);
         //stage.initStyle(StageStyle.UNDECORATED);
-        stage.setResizable(false);
-
         controller = loader.getController();
+    }
 
+    public Stage getStage() {
         return stage;
     }
 

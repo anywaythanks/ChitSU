@@ -14,7 +14,7 @@ public class MeetingWin implements FlowWindow {
     private Stage stage;
 
     @Override
-    public Stage setStage(String title) throws IOException {
+    public void setStage(String title) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MeetingWin.fxml"));
         Scene scene = new Scene(root);
         stage = new Stage();
@@ -25,7 +25,9 @@ public class MeetingWin implements FlowWindow {
         scene.getStylesheets().add(getClass().getResource("MeetingWin.css").toExternalForm());
         stage.setScene(scene);
         //stage.initStyle(StageStyle.UNDECORATED);
-        stage.setResizable(false);
+    }
+
+    public Stage getStage() {
         return stage;
     }
 

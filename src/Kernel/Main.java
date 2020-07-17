@@ -13,10 +13,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Error error = new Error();
-        Stage stage1 = error.setStage("Ошибочка");
+        error.setStage("Ошибочка");
 
-        stage1.show();
+        error.getStage().show();
+
         error.setText("84328744273");
+        //error.getStage().setResizable(false);
         /*stage.setTitle(GAME_NAME);
         Font.loadFont(Kernel.Main.class.getResource("Fonts" + File.separator +"HanZi.ttf").toExternalForm(), 10);
         root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
