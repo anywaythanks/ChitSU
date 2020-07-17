@@ -1,7 +1,5 @@
 package DataBase;
 
-import sample.Main;
-
 import java.io.File;
 import java.sql.SQLException;
 
@@ -34,7 +32,7 @@ public class Creator {
      * Путь до базы данных с сохранениями.
      */
     public static final String PATH_TO_CATALOG_SAVE = System.getProperty("os.name").equals("Linux") ?
-            System.getenv("HOME") + File.separator + ".config" + File.separator + GAME_NAME + File.separator:
+            System.getenv("HOME") + File.separator + ".config" + File.separator + GAME_NAME + File.separator :
             System.getenv("APPDATA") + File.separator + GAME_NAME + File.separator;
     /**
      * Название системы базы данных.
@@ -44,11 +42,38 @@ public class Creator {
     /**
      * Названия файла базы данных.
      */
-    public static final String NAME_DB = System.getProperty("os.name").equals("Linux") ? ".ChitSU_Save.s3db" : "Save.s3db";
+    public static final String NAME_DB = System.getProperty("os.name").equals("Linux") ? "Save.s3db" : "Save.s3db";
     /**
      * Абсолютный путь до бызы данных.
      */
     public static final String ABSOLUTE_PATH_DB = NAME_SYSTEM_DB + PATH_TO_CATALOG_SAVE + NAME_DB;
+
+
+    /**
+     * Название индентифекатора для всех({@link Creator#COLUMNS_TABLE_SAVE_SUDOKU}, {@link Creator#COLUMNS_TABLE_AUTOSAVE_SUDOKU}, {@link Creator#COLUMNS_TABLE_COLORS}, {@link Creator#COLUMNS_TABLE_INFORMATION_DB}, {@link Creator#COLUMNS_TABLE_SETTING}) столбцов.
+     */
+    public static final String ID = "id";
+    /**
+     * Название столбца сохранений в {@link Creator#COLUMNS_TABLE_SAVE_SUDOKU}.
+     */
+    public static final String NAME_SAVE = "name save";
+    /**
+     * Название столбца режима игры в {@link Creator#COLUMNS_TABLE_SAVE_SUDOKU} и {@link Creator#COLUMNS_TABLE_AUTOSAVE_SUDOKU}.
+     */
+    public static final String MODE = "mode";
+    /**
+     * Название столбца размера box в {@link Creator#COLUMNS_TABLE_SAVE_SUDOKU} и {@link Creator#COLUMNS_TABLE_AUTOSAVE_SUDOKU}.
+     */
+    public static final String SIZE_BOX = "size box";
+    /**
+     * Название столбца зашифрованной судоку в {@link Creator#COLUMNS_TABLE_SAVE_SUDOKU} и {@link Creator#COLUMNS_TABLE_AUTOSAVE_SUDOKU}.
+     */
+    public static final String CIPHER_SUDOKU = "Cipher string with sudoku";
+    /**
+     * Название столбца с версией судоку в {@link Creator#COLUMNS_TABLE_INFORMATION_DB}.
+     */
+    public static final String VERSION_DB = "version";
+
 
     /**
      * Название таблицы с информацией о базе данных.
@@ -57,14 +82,17 @@ public class Creator {
     /**
      * Названия и тип данных столбцов.
      * <p>
-     * `id` - id идентификатор, для правильной работы базы: INTEGER.
+     * {@link Creator#ID} - id идентификатор, для правильной работы базы: INTEGER
      * <p>
-     * `version` - ныняшняя версия данных. Указывает на то, в какой версии программы были сохранены данные. Нужно для переноса данных из старых версий: TEXT
+     * {@link Creator#VERSION_DB} - ныняшняя версия данных. Указывает на то, в какой версии программы были сохранены данные. Нужно для переноса данных из старых версий: TEXT
      */
     public static final String[][] COLUMNS_TABLE_INFORMATION_DB = {
-            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
-            {"version", "TEXT"}};
-    public static final String VERSION_DB = "1.1";
+            {ID, "INTEGER PRIMARY KEY AUTOINCREMENT"},
+            {VERSION_DB, "TEXT"}};
+    /**
+     * Ныняшняя версия базы данных.
+     */
+    public static final String DEFAULT_VERSION_DB = "1.1";
 
     /**
      * Название таблицы с простыми сохранениями судоку.
@@ -73,22 +101,22 @@ public class Creator {
     /**
      * Названия и тип данных столбцов.
      * <p>
-     * `id` - id идентификатор, для правильной работы базы: INTEGER.
+     * {@link Creator#ID} - id идентификатор, для правильной работы базы: INTEGER.
      * <p>
-     * `name save` - Название сохранения, также это уникальный ключ: TEXT
+     * {@link Creator#NAME_SAVE} - Название сохранения, также это уникальный ключ: TEXT
      * <p>
-     * `mode` - Режим игры: INTEGER
+     * {@link Creator#MODE} - Режим игры: INTEGER
      * <p>
-     * `size box` - Размер box в судоку: INTEGER
+     * {@link Creator#SIZE_BOX} - Размер box в судоку: INTEGER
      * <p>
-     * `Cipher string with sudoku` - Зашифрованная судоку в виде текста: TEXT
+     * {@link Creator#CIPHER_SUDOKU} - Зашифрованная судоку в виде текста: TEXT
      */
     public static final String[][] COLUMNS_TABLE_SAVE_SUDOKU = {
-            {"id", "INTEGER"},
-            {"name save", "TEXT PRIMARY KEY"},
-            {"mode", "INTEGER"},
-            {"size box", "INTEGER"},
-            {"Cipher string with sudoku", "TEXT"}};
+            {ID, "INTEGER"},
+            {NAME_SAVE, "TEXT PRIMARY KEY"},
+            {MODE, "INTEGER"},
+            {SIZE_BOX, "INTEGER"},
+            {CIPHER_SUDOKU, "TEXT"}};
 
     /**
      * Название таблицы с автосохранениями судоку.
@@ -97,19 +125,19 @@ public class Creator {
     /**
      * Названия и тип данных столбцов.
      * <p>
-     * `id` - id идентификатор, для правильной работы базы: INTEGER.
+     * {@link Creator#ID} - id идентификатор, для правильной работы базы: INTEGER.
      * <p>
-     * `mode` - Режим игры: INTEGER
+     * {@link Creator#MODE} - Режим игры: INTEGER
      * <p>
-     * `size box` - Размер box в судоку: INTEGER
+     * {@link Creator#SIZE_BOX} - Размер box в судоку: INTEGER
      * <p>
-     * `Cipher string with sudoku` - Зашифрованная судоку в виде текста: TEXT
+     * {@link Creator#CIPHER_SUDOKU} - Зашифрованная судоку в виде текста: TEXT
      */
     public static final String[][] COLUMNS_TABLE_AUTOSAVE_SUDOKU = {
-            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
-            {"mode", "INTEGER"},
-            {"size box", "INTEGER"},
-            {"Cipher string with sudoku", "TEXT"}};
+            {ID, "INTEGER PRIMARY KEY AUTOINCREMENT"},
+            {MODE, "INTEGER"},
+            {SIZE_BOX, "INTEGER"},
+            {CIPHER_SUDOKU, "TEXT"}};
 
     /**
      * Название таблицы с настройками игры.
@@ -118,7 +146,7 @@ public class Creator {
     /**
      * Названия и тип данных столбцов.
      * <p>
-     * `id` - id идентификатор, для правильной работы базы: INTEGER.
+     * {@link Creator#ID} - id идентификатор, для правильной работы базы: INTEGER.
      * <p>
      * `Classic` - Классический режим игры: BOOLEAN
      * <p>
@@ -137,7 +165,7 @@ public class Creator {
      * `Set Full Screen` - Запустить игру в фуллскрине: BOOLEAN
      */
     public static final String[][] COLUMNS_TABLE_SETTING = {
-            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
+            {ID, "INTEGER PRIMARY KEY AUTOINCREMENT"},
             {"Classic", "BOOLEAN"},
             {"Creative", "BOOLEAN"},
             {"Learning", "BOOLEAN"},
@@ -154,7 +182,7 @@ public class Creator {
     /**
      * Названия и тип данных столбцов.
      * <p>
-     * `id` - id идентификатор, для правильной работы базы: INTEGER.
+     * {@link Creator#ID} - id идентификатор, для правильной работы базы: INTEGER.
      * <p>
      * `Color Wrong Label` - Цвет неправильной клетки: TEXT
      * <p>
@@ -171,7 +199,7 @@ public class Creator {
      * `Disable Opacity` - Прозрачность заблокированной клетки: TEXT
      */
     public static final String[][] COLUMNS_TABLE_COLORS = {
-            {"id", "INTEGER PRIMARY KEY AUTOINCREMENT"},
+            {ID, "INTEGER PRIMARY KEY AUTOINCREMENT"},
             {"Color Wrong Label", "TEXT"},
             {"Color Base Label", "TEXT"},
             {"Color Base Font", "TEXT"},
@@ -239,7 +267,7 @@ public class Creator {
 
         if (!managerShell.checkTable(NAME_TABLE_INFORMATION_DB)) {
             managerShell.createTable(NAME_TABLE_INFORMATION_DB, COLUMNS_TABLE_INFORMATION_DB);
-            managerShell.write(NAME_TABLE_INFORMATION_DB, new String[][]{{COLUMNS_TABLE_INFORMATION_DB[1][0], VERSION_DB}});
+            managerShell.write(NAME_TABLE_INFORMATION_DB, new String[][]{{VERSION_DB, DEFAULT_VERSION_DB}});
         }
 
     }
