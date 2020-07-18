@@ -1,5 +1,6 @@
 package FlowWindows.MeetingWin;
 
+import FlowWindows.MeetingWin.Controller;
 import FlowWindows.FlowWindow;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,33 +11,27 @@ import sample.Main;
 
 import java.io.IOException;
 
-public class MeetingWin implements FlowWindow {
-    private Stage stage;
+public class MeetingWin extends Stage implements FlowWindow {
+    private final Controller controller;
 
-    @Override
-    public void setStage(String title) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MeetingWin.fxml"));
+    public MeetingWin(String title) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MeetingWin.fxml"));
+        loader.load();
+
+        Parent root = loader.getRoot();
         Scene scene = new Scene(root);
-        stage = new Stage();
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(Main.stage);
-        stage.setTitle(title);
-        stage.hide();
+        initModality(Modality.WINDOW_MODAL);
+        initOwner(Main.stage);
+        setTitle(title);
+        hide();
         scene.getStylesheets().add(getClass().getResource("MeetingWin.css").toExternalForm());
-        stage.setScene(scene);
-        //stage.initStyle(StageStyle.UNDECORATED);
-    }
+        setScene(scene);
+        setResizable(System.getProperty("os.name").equals("Linux"));
 
-    public Stage getStage() {
-        return stage;
+        controller = loader.getController();
     }
 
     @Override
     public void setText(String text) {
-    }
-
-    @Override
-    public void setTitle(String title) {
-        stage.setTitle(title);
     }
 }

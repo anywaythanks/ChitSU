@@ -10,30 +10,23 @@ import sample.Main;
 
 import java.io.IOException;
 
-public class Error implements FlowWindow {
-    private Stage stage;
-    private Controller controller;
-
-    @Override
-    public void setStage(String title) throws IOException {
+public class Error extends Stage implements FlowWindow {
+    private final Controller controller;
+    public Error(String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Error.fxml"));
         loader.load();
 
         Parent root = loader.getRoot();
         Scene scene = new Scene(root);
-        stage = new Stage();
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(Main.stage);
-        stage.setTitle(title);
-        stage.hide();
+        initModality(Modality.WINDOW_MODAL);
+        initOwner(Main.stage);
+        setTitle(title);
+        hide();
         scene.getStylesheets().add(getClass().getResource("Error.css").toExternalForm());
-        stage.setScene(scene);
-        //stage.initStyle(StageStyle.UNDECORATED);
-        controller = loader.getController();
-    }
+        setScene(scene);
+        setResizable(System.getProperty("os.name").equals("Linux"));
 
-    public Stage getStage() {
-        return stage;
+        controller = loader.getController();
     }
 
     @Override
@@ -41,8 +34,4 @@ public class Error implements FlowWindow {
         controller.text.setText(text);
     }
 
-    @Override
-    public void setTitle(String title) {
-        stage.setTitle(title);
-    }
 }

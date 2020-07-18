@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="ChitSU">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChitSU</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="Kernel.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="deb" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="ChitSU.jar">
+        <element id="module-output" name="ChitSU" />
+      </element>
+    </root>
+  </artifact>
+</component>
