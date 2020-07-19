@@ -1,29 +1,51 @@
 package Kernel;
 
-import FlowWindows.Error.Error;
-import FlowWindows.MeetingWin.MeetingWin;
+import DataBase.Deleter;
+import DataBase.Loader;
+import DataBase.Saver;
+import FlowWindows.Load.Load;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.File;
+import java.sql.SQLException;
 
 public class Main extends Application {
-    public static final String GAME_NAME = "ChitSU";
     public static Stage stage;
     public static Parent root;
+    public static Saver saver;
+    public static Loader loader;
+    public static Deleter deleter;
 
     @Override
     public void start(Stage stage) throws Exception {
-        MeetingWin meetingWin = new MeetingWin("Встреча");
-        meetingWin.show();
+        //Создание сохранений
+        if (!loader.checkSave("save1"))
+            saver.saveSudoku("save1", 3, 0, new int[9][9], new boolean[9][9]);
 
+        if (!loader.checkSave("save2"))
+            saver.saveSudoku("save2", 3, 0, new int[9][9], new boolean[9][9]);
 
-/*
+        if (!loader.checkSave("save3"))
+            saver.saveSudoku("save3", 3, 0, new int[9][9], new boolean[9][9]);
+
+        /**
+         * Создание модуля {@link Load}.
+         */
+        Load load = new Load("123");
+        load.setSaves(loader.loadAllNameSave());
+        load.setDelete(actionEvent -> {
+            try {
+                deleter.deleteSave(actionEvent.getSource().toString());
+                load.removeSave(actionEvent.getSource().toString());
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        load.setLoad(actionEvent -> System.out.println(actionEvent.getActionCommand() + " " + actionEvent.getSource().toString()));
+        load.show();
+
+        /*
         //error.getStage().setResizable(false);
         stage.setTitle(GAME_NAME);
         Font.loadFont(Kernel.Main.class.getResource("Fonts" + File.separator + "HanZi.ttf").toExternalForm(), 10);
@@ -34,10 +56,18 @@ public class Main extends Application {
         stage.getIcons().add(new Image("Pictures/icon.png"));
         stage.show();
         Main.stage = stage;
-*/
+        */
     }
 
     public static void main(String[] args) {
+        //Создание объектов, для работы с бд.
+        try {
+            saver = new Saver();
+            loader = new Loader();
+            deleter = new Deleter();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
         launch(args);
     }
 }
