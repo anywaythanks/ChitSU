@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.Main;
 
 import java.io.IOException;
 
@@ -19,7 +18,6 @@ public class Error extends Stage implements FlowWindow {
         Parent root = loader.getRoot();
         Scene scene = new Scene(root);
         initModality(Modality.WINDOW_MODAL);
-        initOwner(Main.stage);
         setTitle(title);
         hide();
         scene.getStylesheets().add(getClass().getResource("Error.css").toExternalForm());
