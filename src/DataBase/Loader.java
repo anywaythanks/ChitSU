@@ -165,6 +165,12 @@ public class Loader {
         return colorsString;
     }
 
+    /**
+     * Есть ли такое сохранение в {@link Creator#NAME_TABLE_SAVE_SUDOKU}.
+     * @param nameSave название сохранения.
+     * @return true, если есть.
+     * @throws SQLException  нет таблицы {@link Creator#NAME_TABLE_SAVE_SUDOKU}.
+     */
     public boolean checkSave(String nameSave) throws SQLException {
         return managerShell.checkVal(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.NAME_SAVE, nameSave}});
     }
