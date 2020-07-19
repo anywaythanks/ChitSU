@@ -131,7 +131,8 @@ public class Load extends Stage implements FlowWindow {
 
         controller = loader.getController();
         controller.delete.setOnAction(actionEvent -> {
-            boolean isClose = controller.saves.getItems().size() == 1;
+            System.out.println(controller.saves.getItems().size());
+            boolean isClose = controller.saves.getItems().size() <= 1;
             activateDelete(controller.saves.getValue());
 
             if (isClose)
@@ -174,6 +175,12 @@ public class Load extends Stage implements FlowWindow {
      */
     public void removeSave(String save) {
         controller.saves.getItems().removeAll(save);
+        if (controller.saves.getItems().size() != 0) {
+            controller.saves.setValue(controller.saves.getItems().get(0));
+            controller.saves.setId(controller.saves.getItems().get(0));
+            controller.saves.setPromptText(controller.saves.getItems().get(0));
+        }
+
     }
 
     /**
