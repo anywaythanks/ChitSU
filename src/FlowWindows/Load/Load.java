@@ -49,7 +49,7 @@ public class Load extends Stage implements FlowWindow {
      *
      * @param allDelete новое событие.
      */
-    public void setAllDelete(ActionListener allDelete) {
+    public void setOnAllDelete(ActionListener allDelete) {
         this.allDelete = allDelete;
     }
 
@@ -60,7 +60,7 @@ public class Load extends Stage implements FlowWindow {
      *
      * @param delete новое событие.
      */
-    public void setDelete(ActionListener delete) {
+    public void setOnDelete(ActionListener delete) {
         this.delete = delete;
     }
 
@@ -71,7 +71,7 @@ public class Load extends Stage implements FlowWindow {
      *
      * @param load новое событие.
      */
-    public void setLoad(ActionListener load) {
+    public void setOnLoad(ActionListener load) {
         this.load = load;
     }
 

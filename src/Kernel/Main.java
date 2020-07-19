@@ -35,7 +35,7 @@ public class Main extends Application {
          */
         Load load = new Load("123");
         load.setSaves(loader.loadAllNameSave());
-        load.setDelete(actionEvent -> {
+        load.setOnDelete(actionEvent -> {
             try {
                 deleter.deleteSave(actionEvent.getSource().toString());
                 load.removeSave(actionEvent.getSource().toString());
@@ -46,7 +46,7 @@ public class Main extends Application {
                 System.exit(-1);
             }
         });
-        load.setLoad(actionEvent -> System.out.println(actionEvent.getActionCommand() + " " + actionEvent.getSource().toString()));
+        load.setOnLoad(actionEvent -> System.out.println(actionEvent.getActionCommand() + " " + actionEvent.getSource().toString()));
         load.show();
 
         /*
