@@ -135,6 +135,7 @@ public class Loader {
 
     /**
      * Загрузить настройки игры.
+     *
      * @return настройки игры в виде bool[][].
      * @throws SQLException нет таблицы {@link Creator#NAME_TABLE_SETTING}.
      */
@@ -150,6 +151,7 @@ public class Loader {
 
     /**
      * Загрузить цвета игры.
+     *
      * @return цвета игры в виде String[].
      * @throws SQLException нет таблицы {@link Creator#NAME_TABLE_COLORS}.
      */
@@ -161,5 +163,9 @@ public class Loader {
             colorsString[i] = colors.getString(Creator.COLUMNS_TABLE_COLORS[i + 1][0]);
 
         return colorsString;
+    }
+
+    public boolean checkSave(String nameSave) throws SQLException {
+        return managerShell.checkVal(Creator.NAME_TABLE_SAVE_SUDOKU, new String[][]{{Creator.NAME_SAVE, nameSave}});
     }
 }
