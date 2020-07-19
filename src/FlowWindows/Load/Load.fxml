@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="159.0" prefWidth="476.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControlLoad1">
+<AnchorPane prefHeight="159.0" prefWidth="476.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlowWindows.Load.Controller">
     <children>
         <Label fx:id="text" layoutX="36.0" layoutY="28.0" prefHeight="48.0" prefWidth="374.0" text="Выберите сохранение.&#10;" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
             <font>
