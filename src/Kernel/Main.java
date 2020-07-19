@@ -3,6 +3,7 @@ package Kernel;
 import DataBase.Deleter;
 import DataBase.Loader;
 import DataBase.Saver;
+import FlowWindows.Error.Error;
 import FlowWindows.Load.Load;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -39,7 +40,10 @@ public class Main extends Application {
                 deleter.deleteSave(actionEvent.getSource().toString());
                 load.removeSave(actionEvent.getSource().toString());
             } catch (SQLException throwables) {
-                throwables.printStackTrace();
+                Error error = new Error("Ошибка");
+                error.setText( throwables.getMessage());
+                error.showAndWait();
+                System.exit(-1);
             }
         });
         load.setLoad(actionEvent -> System.out.println(actionEvent.getActionCommand() + " " + actionEvent.getSource().toString()));
@@ -61,12 +65,16 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         //Создание объектов, для работы с бд.
+
         try {
             saver = new Saver();
             loader = new Loader();
             deleter = new Deleter();
         } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
+            Error error = new Error("Ошибка");
+            error.setText( throwables.getMessage());
+            error.showAndWait();
+            System.exit(-1);
         }
         launch(args);
     }
