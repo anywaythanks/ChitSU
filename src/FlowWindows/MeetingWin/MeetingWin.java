@@ -18,8 +18,6 @@ import java.io.IOException;
  * @version 1.0
  */
 public class MeetingWin extends Stage implements FlowWindow {
-    private final Controller controller;
-
     /**
      * Создание объекта {@link MeetingWin}.
      *
@@ -38,8 +36,6 @@ public class MeetingWin extends Stage implements FlowWindow {
         scene.getStylesheets().add(getClass().getResource("MeetingWin.css").toExternalForm());
         setScene(scene);
         setResizable(System.getProperty("os.name").equals("Linux"));
-
-        controller = loader.getController();
     }
 
     @Override
