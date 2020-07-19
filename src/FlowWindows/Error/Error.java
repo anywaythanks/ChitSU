@@ -10,9 +10,25 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Класс окна ошибки.
+ *
+ * @author anywaythanks
+ * @version 1.0
+ */
 public class Error extends Stage implements FlowWindow {
+    /**
+     * Класс {@link Controller}.
+     * <p>
+     * Необходим, для получения некоторых {@link javafx.scene.Node} в {@link Error#setText(String)}.
+     */
     private final Controller controller;
 
+    /**
+     * Создание объекта {@link Error}.
+     *
+     * @param title название окна.
+     */
     public Error(String title) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Error.fxml"));
 
