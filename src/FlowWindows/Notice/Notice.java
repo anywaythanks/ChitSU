@@ -61,7 +61,7 @@ public class Notice extends Stage implements FlowWindow {
      */
     private void activateAnswer(boolean button) {
         if (answer != null) {
-            ActionEvent actionEvent = new ActionEvent(button, id++, "Delete");
+            ActionEvent actionEvent = new ActionEvent(button, id++, "Answer");
             answer.actionPerformed(actionEvent);
         }
     }
