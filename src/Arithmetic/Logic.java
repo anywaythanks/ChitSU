@@ -14,7 +14,7 @@ public class Logic {
      * @return "TRUE" or "FALSE".
      */
     public static String booleanToString(boolean bool) {
-        return bool ? "TRUE" : "FALSE";
+        return bool ? "1" : "0";
     }
 
     /**
@@ -24,7 +24,7 @@ public class Logic {
      * @return true or false.
      */
     public static boolean stringToBoolean(String string) {
-        return string.equals("TRUE");
+        return string.equals("1");
     }
 
 
