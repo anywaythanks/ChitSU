@@ -6,12 +6,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 
+/**
+ * Controller класс, для обработки кнопок.
+ *
+ * @author anywaythanks
+ * @version 1.0
+ */
 public class Controller {
+    /**
+     * Кнопка ok.
+     */
     @FXML
-    public Button ok;
-
+    Button ok;
+    /**
+     * {@link Label} элемент с текстом.
+     */
     @FXML
-    public Label text;
+    Label text;
 
     @FXML
     public void initialize

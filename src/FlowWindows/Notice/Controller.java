@@ -4,6 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+/**
+ * Controller класс, для обработки кнопок.
+ *
+ * @author anywaythanks
+ * @version 1.0
+ */
 public class Controller {
     /**
      * Кнопка ok.
