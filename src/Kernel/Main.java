@@ -23,33 +23,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Font.loadFont(Kernel.Main.class.getResource("Fonts" + File.separator + "HanZi.ttf").toExternalForm(), 10);
-        /*
-        if (!loader.checkSave("save1"))
-            saver.saveSudoku("save1", 3, 0, new int[9][9], new boolean[9][9]);
-
-        if (!loader.checkSave("save2"))
-            saver.saveSudoku("save2", 3, 0, new int[9][9], new boolean[9][9]);
-
-        if (!loader.checkSave("save3"))
-            saver.saveSudoku("save3", 3, 0, new int[9][9], new boolean[9][9]);
-        */
         Notice notice = new Notice("not");
-        notice.setImage(new Image(Kernel.Main.class.getResource("Pictures/sakura1.png").toExternalForm()));
+
+        //notice.setImage(new Image(Kernel.Main.class.getResource("Pictures/sakura1.png").toExternalForm()));
+
         notice.setOnAnswer(actionEvent -> System.out.println((boolean) actionEvent.getSource()));
         notice.show();
-
-        /*
-        error.getStage().setResizable(false);
-        stage.setTitle(GAME_NAME);
-         root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("MainWin.css").toExternalForm());
-        stage.setScene(scene);
-        stage.getIcons().add(new Image("Pictures/icon.png"));
-        stage.show();
-        Main.stage = stage;
-        */
     }
 
     public static void main(String[] args) {
