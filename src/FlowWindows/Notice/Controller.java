@@ -3,6 +3,8 @@ package FlowWindows.Notice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * Controller класс, для обработки кнопок.
@@ -26,7 +28,11 @@ public class Controller {
      */
     @FXML
     Label text;
-
+    /**
+     * {@link Image} элемент.
+     */
+    @FXML
+    ImageView image;
     @FXML
     public void initialize() {
         ok.setFocusTraversable(true);

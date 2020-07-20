@@ -7,6 +7,7 @@ import FlowWindows.Error.Error;
 import FlowWindows.Notice.Notice;
 import javafx.application.Application;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -34,6 +35,7 @@ public class Main extends Application {
             saver.saveSudoku("save3", 3, 0, new int[9][9], new boolean[9][9]);
         */
         Notice notice = new Notice("not");
+        notice.setImage(new Image(Kernel.Main.class.getResource("Pictures/sakura1.png").toExternalForm()));
         notice.setOnAnswer(actionEvent -> System.out.println((boolean) actionEvent.getSource()));
         notice.show();
 

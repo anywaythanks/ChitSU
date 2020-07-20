@@ -6,6 +6,7 @@ import FlowWindows.Load.Load;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -110,5 +111,9 @@ public class Notice extends Stage implements FlowWindow {
     @Override
     public void setText(String text) {
         controller.text.setText(text);
+    }
+
+    public void setImage(Image image) {
+        controller.image.setImage(image);
     }
 }
