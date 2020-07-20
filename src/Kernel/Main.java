@@ -4,11 +4,13 @@ import DataBase.Deleter;
 import DataBase.Loader;
 import DataBase.Saver;
 import FlowWindows.Error.Error;
-import FlowWindows.Load.Load;
+import FlowWindows.Notice.Notice;
 import javafx.application.Application;
 import javafx.scene.Parent;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.sql.SQLException;
 
 public class Main extends Application {
@@ -20,7 +22,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        //Создание сохранений
+        Font.loadFont(Kernel.Main.class.getResource("Fonts" + File.separator + "HanZi.ttf").toExternalForm(), 10);
+        /*
         if (!loader.checkSave("save1"))
             saver.saveSudoku("save1", 3, 0, new int[9][9], new boolean[9][9]);
 
@@ -29,31 +32,15 @@ public class Main extends Application {
 
         if (!loader.checkSave("save3"))
             saver.saveSudoku("save3", 3, 0, new int[9][9], new boolean[9][9]);
-
-        /**
-         * Создание модуля {@link Load}.
-         */
-        Load load = new Load("123");
-        load.setSaves(loader.loadAllNameSave());
-        load.setOnDelete(actionEvent -> {
-            try {
-                deleter.deleteSave(actionEvent.getSource().toString());
-                load.removeSave(actionEvent.getSource().toString());
-            } catch (SQLException throwables) {
-                Error error = new Error("Ошибка");
-                error.setText( throwables.getMessage());
-                error.showAndWait();
-                System.exit(-1);
-            }
-        });
-        load.setOnLoad(actionEvent -> System.out.println(actionEvent.getActionCommand() + " " + actionEvent.getSource().toString()));
-        load.show();
+        */
+        Notice notice = new Notice("not");
+        notice.setOnAnswer(actionEvent -> System.out.println((boolean) actionEvent.getSource()));
+        notice.show();
 
         /*
-        //error.getStage().setResizable(false);
+        error.getStage().setResizable(false);
         stage.setTitle(GAME_NAME);
-        Font.loadFont(Kernel.Main.class.getResource("Fonts" + File.separator + "HanZi.ttf").toExternalForm(), 10);
-        root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
+         root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("MainWin.css").toExternalForm());
         stage.setScene(scene);
@@ -64,18 +51,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        //Создание объектов, для работы с бд.
-
-        try {
-            saver = new Saver();
-            loader = new Loader();
-            deleter = new Deleter();
-        } catch (SQLException | ClassNotFoundException throwables) {
-            Error error = new Error("Ошибка");
-            error.setText( throwables.getMessage());
-            error.showAndWait();
-            System.exit(-1);
-        }
         launch(args);
     }
 }
