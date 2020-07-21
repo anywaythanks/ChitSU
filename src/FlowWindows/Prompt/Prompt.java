@@ -1,4 +1,4 @@
-package FlowWindows.Information;
+package FlowWindows.Prompt;
 
 import FlowWindows.FlowWindow;
 import javafx.fxml.FXMLLoader;
@@ -10,22 +10,22 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Класс окна информации.
+ * Класс окна помощи.
  * <p>
- * Показывает пользователю информацию о программе.
+ * Показывает пользователю помощь по игре.
  *
  * @author anywaythanks
  * @version 1.0
  */
-public class Information extends Stage implements FlowWindow {
+public class Prompt extends Stage implements FlowWindow {
     /**
-     * Создание объекта {@link Information}.
+     * Создание объекта {@link Prompt}.
      *
      * @param title название окна.
-     * @throws IOException возможно нет Information.fxml или же в нем содержатся ошибки.
+     * @throws IOException возможно нет Help.fxml или же в нем содержатся ошибки.
      */
-    public Information(String title) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Information.fxml"));
+    public Prompt(String title) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Help.fxml"));
         loader.load();
 
         Parent root = loader.getRoot();
@@ -33,7 +33,7 @@ public class Information extends Stage implements FlowWindow {
         initModality(Modality.WINDOW_MODAL);
         setTitle(title);
         hide();
-        scene.getStylesheets().add(getClass().getResource("Information.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("Help.css").toExternalForm());
         setScene(scene);
         setResizable(System.getProperty("os.name").equals("Linux"));
     }
