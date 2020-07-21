@@ -116,4 +116,14 @@ public class Notice extends Stage implements FlowWindow {
     public void setImage(Image image) {
         controller.image.setImage(image);
     }
+
+    public void setCancelText(String text) {
+        controller.cancel.setText(text);
+    }
+
+    public void setOkText(String text) {
+        controller.ok.setText(text);
+    }
+
+
 }
