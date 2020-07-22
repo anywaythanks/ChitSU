@@ -29,7 +29,7 @@ public class Wining extends Stage implements FlowWindow {
      * Создание объекта {@link Wining}.
      *
      * @param title название окна.
-     * @throws IOException возможно нет Help.fxml или же в нем содержатся ошибки.
+     * @throws IOException возможно нет Wining.fxml или же в нем содержатся ошибки.
      */
     public Wining(String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Wining.fxml"));

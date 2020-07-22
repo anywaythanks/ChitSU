@@ -44,6 +44,7 @@ public class Load extends Stage implements FlowWindow {
      */
     private ActionListener load = null;
 
+
     /**
      * Создать событие {@link Load#allDelete}.
      *

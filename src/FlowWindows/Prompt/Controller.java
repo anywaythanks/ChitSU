@@ -7,16 +7,28 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 
+/**
+ * Controller класс, для обработки кнопок.
+ *
+ * @author anywaythanks
+ * @version 1.0
+ */
 public class Controller {
-
+    /**
+     * Кнопка ок.
+     */
     @FXML
     Button ok;
-
+    /**
+     * Заголовок окна.
+     */
     @FXML
     Label text;
-
+    /**
+     * Основной контент окна.
+     */
     @FXML
-    VBox cont;
+    VBox content;
 
     @FXML
     public void initialize

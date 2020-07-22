@@ -31,7 +31,7 @@ public class Prompt extends Stage implements FlowWindow {
      * Создание объекта {@link Prompt}.
      *
      * @param title название окна.
-     * @throws IOException возможно нет Help.fxml или же в нем содержатся ошибки.
+     * @throws IOException возможно нет Prompt.fxml или же в нем содержатся ошибки.
      */
     public Prompt(String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Prompt.fxml"));
@@ -53,6 +53,12 @@ public class Prompt extends Stage implements FlowWindow {
     public void setText(String text) {
         controller.text.setText(text);
     }
+
+    /**
+     * Задать текст, для {@link Controller#content}.
+     *
+     * @param textVBox новый массив {@link String}.
+     */
     public void setTextVBox(String... textVBox) {
         for (String s : textVBox) {
             Label label = new Label(s);
@@ -60,7 +66,7 @@ public class Prompt extends Stage implements FlowWindow {
             label.setStyle("-fx-font-style: italic");
             label.setFont(Font.font(14));
             label.setMaxSize(1000, 1000);
-            controller.cont.getChildren().addAll(label);
+            controller.content.getChildren().addAll(label);
         }
     }
 }

@@ -46,10 +46,10 @@ public class Save extends Stage implements FlowWindow {
      * <p>
      * В source {@link String} сохранения.
      *
-     * @param answer новое событие.
+     * @param save новое событие.
      */
-    public void setOnSave(ActionListener answer) {
-        this.save = answer;
+    public void setOnSave(ActionListener save) {
+        this.save = save;
     }
 
 
@@ -67,7 +67,7 @@ public class Save extends Stage implements FlowWindow {
      * Создание объекта {@link Save}.
      *
      * @param title название окна.
-     * @throws IOException возможно нет Help.fxml или же в нем содержатся ошибки.
+     * @throws IOException возможно нет Save.fxml или же в нем содержатся ошибки.
      */
     public Save(String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Save.fxml"));

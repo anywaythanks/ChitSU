@@ -35,7 +35,7 @@ public class LearningMeetingWin extends Stage implements FlowWindow {
      */
     private int id = 0;
     /**
-     * Срабатывает при нажатии на кнопку {@link Controller#Close}.
+     * Срабатывает при закрытии окна.
      */
     private ActionListener closed = null;
 
@@ -45,12 +45,11 @@ public class LearningMeetingWin extends Stage implements FlowWindow {
      * <p>
      * В source значение {@link Controller#confirmation}.
      *
-     * @param answer новое событие.
+     * @param closed новое событие.
      */
-    public void setOnClosed(ActionListener answer) {
-        this.closed = answer;
+    public void setOnClosed(ActionListener closed) {
+        this.closed = closed;
     }
-
 
     /**
      * Активировать событие {@link LearningMeetingWin#closed}.
@@ -84,21 +83,21 @@ public class LearningMeetingWin extends Stage implements FlowWindow {
         setResizable(System.getProperty("os.name").equals("Linux"));
 
         controller = loader.getController();
-        controller.Close.setOnKeyPressed(event -> {
+        controller.close.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 activateClosed(controller.confirmation.isSelected());
-                FXManipulate.getStage(controller.Close).close();
+                FXManipulate.getStage(controller.close).close();
             }
         });
         controller.confirmation.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 activateClosed(controller.confirmation.isSelected());
-                FXManipulate.getStage(controller.Close).close();
+                FXManipulate.getStage(controller.close).close();
             }
         });
-        controller.Close.setOnAction(event -> {
+        controller.close.setOnAction(event -> {
             activateClosed(controller.confirmation.isSelected());
-            FXManipulate.getStage(controller.Close).close();
+            FXManipulate.getStage(controller.close).close();
         });
     }
 

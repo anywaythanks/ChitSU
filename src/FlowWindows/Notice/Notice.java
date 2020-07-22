@@ -113,14 +113,29 @@ public class Notice extends Stage implements FlowWindow {
         controller.text.setText(text);
     }
 
+    /**
+     * Поставить новое изображение в {@link Controller#image}.
+     *
+     * @param image новое изображение.
+     */
     public void setImage(Image image) {
         controller.image.setImage(image);
     }
 
+    /**
+     * Сделать новый текст в {@link Controller#cancel}.
+     *
+     * @param text новый текст.
+     */
     public void setCancelText(String text) {
         controller.cancel.setText(text);
     }
 
+    /**
+     * Сделать новый текст в {@link Controller#ok}.
+     *
+     * @param text новый текст.
+     */
     public void setOkText(String text) {
         controller.ok.setText(text);
     }

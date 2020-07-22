@@ -32,17 +32,17 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="textB1" alignment="BOTTOM_LEFT" disable="true" layoutX="120.0" layoutY="233.0" prefHeight="30.0" prefWidth="101.0" text="Nur-Sultan,">
+      <Label fx:id="textBuffer_NurSultan" alignment="BOTTOM_LEFT" disable="true" layoutX="120.0" layoutY="233.0" prefHeight="30.0" prefWidth="101.0" text="Nur-Sultan,">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="textB2" alignment="BOTTOM_LEFT" disable="true" layoutX="231.0" layoutY="233.0" prefHeight="30.0" prefWidth="80.0" text="gellert17">
+      <Label fx:id="textBuffer_gellert17" alignment="BOTTOM_LEFT" disable="true" layoutX="231.0" layoutY="233.0" prefHeight="30.0" prefWidth="80.0" text="gellert17">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="cloud4" disable="true" layoutX="199.0" layoutY="153.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
+      <AnchorPane fx:id="cloud_hexi2003" disable="true" layoutX="199.0" layoutY="153.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
          <children>
             <Polygon fx:id="win111" fill="WHITE" points="109.0, 15.0, 91.0, 0.0, 75.0, 15.0, 0.0, 15.0, 0.0, 234.0, 225.0, 234.0, 225.0, 15.0" stroke="BLACK" strokeType="INSIDE">
                <effect>
@@ -56,7 +56,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="cloud3" disable="true" layoutX="102.0" layoutY="154.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
+      <AnchorPane fx:id="cloud_anywaythanks" disable="true" layoutX="102.0" layoutY="154.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
          <children>
             <Polygon fx:id="win11" fill="WHITE" points="109.0, 15.0, 91.0, 0.0, 75.0, 15.0, 0.0, 15.0, 0.0, 234.0, 225.0, 234.0, 225.0, 15.0" stroke="BLACK" strokeType="INSIDE">
                <effect>
@@ -70,17 +70,17 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="text3" alignment="BOTTOM_LEFT" layoutX="120.0" layoutY="130.0" prefHeight="30.0" prefWidth="133.0" text="anywaythanks," AnchorPane.leftAnchor="120.0">
+      <Label fx:id="text_anywaythanks" alignment="BOTTOM_LEFT" layoutX="120.0" layoutY="130.0" prefHeight="30.0" prefWidth="133.0" text="anywaythanks," AnchorPane.leftAnchor="120.0">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="text4" alignment="BOTTOM_LEFT" layoutX="256.0" layoutY="130.0" prefHeight="30.0" prefWidth="80.0" text="hexi2003">
+      <Label fx:id="text_hexi2003" alignment="BOTTOM_LEFT" layoutX="256.0" layoutY="130.0" prefHeight="30.0" prefWidth="80.0" text="hexi2003">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="cloud1" disable="true" layoutX="27.0" layoutY="6.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
+      <AnchorPane fx:id="cloud_NurSultan" disable="true" layoutX="27.0" layoutY="6.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
          <children>
             <Polygon fx:id="win12" fill="WHITE" points="112.5, 16.0, 91.0, 0.0, 75.0, 15.0, 0.0, 15.0, 0.0, 234.0, 225.0, 234.0, 225.0, 15.0" rotate="180.0" stroke="BLACK" strokeType="INSIDE">
                <effect>
@@ -94,7 +94,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="cloud2" disable="true" layoutX="127.0" layoutY="6.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
+      <AnchorPane fx:id="cloud_gellert17" disable="true" layoutX="127.0" layoutY="6.0" opacity="0.0" prefHeight="235.0" prefWidth="227.0">
          <children>
             <Polygon fx:id="win1" fill="WHITE" points="112.5, 16.0, 91.0, 0.0, 75.0, 15.0, 0.0, 15.0, 0.0, 234.0, 225.0, 234.0, 225.0, 15.0" rotate="180.0" stroke="BLACK" strokeType="INSIDE">
                <effect>
@@ -108,12 +108,12 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="text2" alignment="BOTTOM_LEFT" layoutX="231.0" layoutY="233.0" opacity="0.0" prefHeight="30.0" prefWidth="80.0" text="gellert17">
+      <Label fx:id="text_gellert17" alignment="BOTTOM_LEFT" layoutX="231.0" layoutY="233.0" opacity="0.0" prefHeight="30.0" prefWidth="80.0" text="gellert17">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="text1" alignment="BOTTOM_LEFT" layoutX="120.0" layoutY="233.0" opacity="0.0" prefHeight="30.0" prefWidth="101.0" text="Nur-Sultan," AnchorPane.leftAnchor="120.0">
+      <Label fx:id="text_NurSultan" alignment="BOTTOM_LEFT" layoutX="120.0" layoutY="233.0" opacity="0.0" prefHeight="30.0" prefWidth="101.0" text="Nur-Sultan," AnchorPane.leftAnchor="120.0">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>

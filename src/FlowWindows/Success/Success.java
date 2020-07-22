@@ -28,7 +28,7 @@ public class Success extends Stage implements FlowWindow {
      * Создание объекта {@link Success}.
      *
      * @param title название окна.
-     * @throws IOException возможно нет Help.fxml или же в нем содержатся ошибки.
+     * @throws IOException возможно нет Success.fxml или же в нем содержатся ошибки.
      */
     public Success(String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Success.fxml"));

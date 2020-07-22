@@ -7,9 +7,14 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 
 public class Controller {
+    /**
+     * Кнопка ок.
+     */
     @FXML
     Button ok;
-
+    /**
+     * Кнопка cancel.
+     */
     @FXML
     Label text;
 

@@ -58,5 +58,4 @@ public class Error extends Stage implements FlowWindow {
     public void setText(String text) {
         controller.text.setText(text);
     }
-
 }

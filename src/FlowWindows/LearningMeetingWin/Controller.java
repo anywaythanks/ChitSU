@@ -5,13 +5,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 
 public class Controller {
+    /**
+     * кнопка OK.
+     */
     @FXML
-    public Button Close;
+    public Button close;
+    /**
+     * {@link RadioButton} больше не показывать.
+     */
     @FXML
     public RadioButton confirmation;
 
     @FXML
     public void initialize() {
-        Close.setFocusTraversable(true);
+        close.setFocusTraversable(true);
     }
 }

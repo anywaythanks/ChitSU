@@ -25,8 +25,7 @@ public class Controller {
     Label text;
 
     @FXML
-    public void initialize
-            () {
+    public void initialize() {
         ok.setOnAction(event -> FXManipulate.getStage(ok).close());
         ok.setFocusTraversable(true);
         ok.setOnKeyPressed(event -> {
