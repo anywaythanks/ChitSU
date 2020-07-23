@@ -1,0 +1,329 @@
+/*! @mainpage Главная информация об программе ChitSU.
+
+Вот основное представление программы:
+@startuml
+title __ChitSU Diagram__\n
+
+namespace kernel{
+}
+namespace sudoku{
+}
+namespace flowWindows{
+}
+namespace dataBase{
+}
+ kernel o-- sudoku : sudoku
+ kernel o-- sudoku : viewerSudoku
+ flowWindows.save o-- sudoku : widgetSudoku
+
+
+ kernel o-- dataBase : saver
+ kernel o-- dataBase : loader
+ kernel o-- dataBase : deleter
+ kernel o-- dataBase : overwriter
+
+ kernel o-- flowWindows : error
+ kernel o-- flowWindows : help
+ kernel o-- flowWindows : information
+ kernel o-- flowWindows : learningMeetingWin
+ kernel o-- flowWindows : load
+ kernel o-- flowWindows : meetingWin
+ kernel o-- flowWindows : notice
+ kernel o-- flowWindows : prompt
+ kernel o-- flowWindows : save
+ kernel o-- flowWindows : setting
+ kernel o-- flowWindows : success
+ kernel o-- flowWindows : wining
+@enduml
+
+Как видно по диаграмме в модуле flowWindows сосредоточены все окна, которые будут уведомлять игрока об чем-либо. 
+Модуль dataBase записывает сохранения.
+# Модуль sudoku.
+У модуля sudoku несколько более специфечная роль. В основном это сборник всех видов судоку. 
+@startuml
+  namespace sudoku {
+    class sudoku.Cells {
+    }
+    class sudoku.ShowerSudoku {
+    }
+    class sudoku.LogicSudoku {
+    }
+    class sudoku.LogicSudoku {
+    }
+    class sudoku.WidgetSudoku {
+    }
+    class sudoku.ViewerSudoku {
+    }
+    class sudoku.Sudoku {
+    }
+  }
+  sudoku.Cells -up-|> javafx.scene.layout.GridPane
+  sudoku.Cells .up.> arithmetic.NumberSystem
+
+  sudoku.ShowerSudoku -up-|> javafx.scene.layout.GridPane
+  sudoku.ShowerSudoku o-- sudoku.Cells
+
+  sudoku.Sudoku o-- sudoku.LogicSudoku
+  sudoku.Sudoku -up-|> sudoku.ShowerSudoku
+ 
+  sudoku.WidgetSudoku -up-|> sudoku.ShowerSudoku
+ 
+  sudoku.ViewerSudoku -up-|> sudoku.ShowerSudoku
+@enduml
+По диаграмме видно, что от класса {@link sudoku.Cells} агрегацирует класс {@link sudoku.ShowerSudoku}. 
+Тот же в свою очередь производит готовые к использованию в fxml объекты. 
+### Объекты: #######
+- {@link sudoku.WidgetSudoku} - Виджет судоку. Ипользуется в {@link flowWindows.save.Save}.            
+- {@link sudoku.ViewerSudoku} - Визуализация нескольких судоку. Используется в {@link kernel.MainWin}. 
+- {@link sudoku.Sudoku} - Простая судоку. Используется в {@link kernel.MainWin}.  
+
+# Модуль flowWindows.
+
+@startuml
+    namespace flowWindows {
+      interface flowWindows.FlowWindow {
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace error {
+        class flowWindows.error.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace error {
+        class flowWindows.error.Error {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace help {
+        class flowWindows.help.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace help {
+        class flowWindows.help.Help {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace information {
+        class flowWindows.information.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace information {
+        class flowWindows.information.Information {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace learningMeetingWin {
+        class flowWindows.learningMeetingWin.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace learningMeetingWin {
+        class flowWindows.learningMeetingWin.LearningMeetingWin {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace load {
+        class flowWindows.load.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace load {
+        class flowWindows.load.Load {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace meetingWin {
+        class flowWindows.meetingWin.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace meetingWin {
+        class flowWindows.meetingWin.MeetingWin {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace notice {
+        class flowWindows.notice.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace notice {
+        class flowWindows.notice.Notice {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace prompt {
+        class flowWindows.prompt.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace prompt {
+        class flowWindows.prompt.Prompt {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace save {
+        class flowWindows.save.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace save {
+        class flowWindows.save.Save {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace setting {
+        class flowWindows.setting.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace setting {
+        class flowWindows.setting.Setting {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace success {
+        class flowWindows.success.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace success {
+        class flowWindows.success.Success {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace wining {
+        class flowWindows.wining.Controller {
+        }
+      }
+    }
+
+
+    namespace flowWindows {
+      namespace wining {
+        class flowWindows.wining.Wining {
+        }
+      }
+    }
+
+  flowWindows.error.Error .up.|> flowWindows.FlowWindow
+  flowWindows.error.Error -up-|> javafx.stage.Stage
+  flowWindows.error.Error o-- flowWindows.error.Controller : controller
+  flowWindows .up.> arithmetic.FXManipulate
+
+  flowWindows.help.Help .up.|> flowWindows.FlowWindow
+  flowWindows.help.Help -up-|> javafx.stage.Stage
+  flowWindows.information.Information .up.|> flowWindows.FlowWindow
+  flowWindows.information.Information -up-|> javafx.stage.Stage
+  flowWindows.learningMeetingWin.LearningMeetingWin .up.|> flowWindows.FlowWindow
+  flowWindows.learningMeetingWin.LearningMeetingWin -up-|> javafx.stage.Stage
+  flowWindows.learningMeetingWin.LearningMeetingWin o-- flowWindows.learningMeetingWin.Controller : controller
+  flowWindows.load.Load .up.|> flowWindows.FlowWindow
+  flowWindows.load.Load -up-|> javafx.stage.Stage
+  flowWindows.load.Load o-- flowWindows.load.Controller : controller
+  flowWindows.meetingWin.MeetingWin .up.|> flowWindows.FlowWindow
+  flowWindows.meetingWin.MeetingWin -up-|> javafx.stage.Stage
+  flowWindows.notice.Notice .up.|> flowWindows.FlowWindow
+  flowWindows.notice.Notice -up-|> javafx.stage.Stage
+  flowWindows.notice.Notice o-- flowWindows.notice.Controller : controller
+  flowWindows.prompt.Prompt .up.|> flowWindows.FlowWindow
+  flowWindows.prompt.Prompt -up-|> javafx.stage.Stage
+  flowWindows.prompt.Prompt o-- flowWindows.prompt.Controller : controller
+  flowWindows.save.Save .up.|> flowWindows.FlowWindow
+  flowWindows.save.Save -up-|> javafx.stage.Stage
+  flowWindows.save.Save o-- flowWindows.save.Controller : controller
+  flowWindows.setting.Setting .up.|> flowWindows.FlowWindow
+  flowWindows.setting.Setting -up-|> javafx.stage.Stage
+  flowWindows.setting.Setting o-- flowWindows.setting.Controller : controller
+  flowWindows.success.Success .up.|> flowWindows.FlowWindow
+  flowWindows.success.Success -up-|> javafx.stage.Stage
+  flowWindows.success.Success o-- flowWindows.success.Controller : controller
+  flowWindows.wining.Wining .up.|> flowWindows.FlowWindow
+  flowWindows.wining.Wining -up-|> javafx.stage.Stage
+  flowWindows.wining.Wining o-- flowWindows.wining.Controller : controller
+@enduml
+### Основные объекты:
+- {@link flowWindows.error.Eror}
+- {@link flowWindows.help.Help}
+- {@link flowWindows.information.Information}
+- {@link flowWindows.learningMeetingWin.LearningMeetingWin}
+- {@link flowWindows.load.Load}
+- {@link flowWindows.meetingWin.MeetingWin}
+- {@link flowWindows.notice.Notice}
+- {@link flowWindows.prompt.Prompt}
+- {@link flowWindows.save.Save}
+- {@link flowWindows.setting.Setting}
+- {@link flowWindows.success.Success}
+- {@link flowWindows.wining.Wining}
+*/
