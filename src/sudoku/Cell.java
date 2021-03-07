@@ -1,295 +1,223 @@
 package sudoku;
 
-import arithmetic.FXManipulate;
-import arithmetic.Indexing;
-import arithmetic.NumberSystem;
-import javafx.beans.NamedArg;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import arithmetic.ArraysCalculator;
 
-/**
- * Класс клетки судоку.
- *
- * @author anywaythanks
- * @version 1.0
- * @startuml Cells
- * namespace Sudoku {
- * class Sudoku.Cells {
- * - FONT_SCALE : double
- * - GRID_PANE_SCALE : double
- * - candidates : Label[]
- * - cellsVal : Label
- * - gridPane : GridPane
- * - scale : double
- * - size : int
- * - sizeBox : int
- * + Cells()
- * + activateAllCandidate()
- * + activateCandidate()
- * + deactivateAllCandidate()
- * + deactivateCandidate()
- * + getCellsVal()
- * + getScale()
- * + getSizeBox()
- * + setCellsVal()
- * + setScale()
- * + setSizeBox()
- * - getCandidateSize()
- * - getCellValSize()
- * - getGridPaneSize()
- * }
- * }
- * namespace Arithmetic {
- * class Arithmetic.Indexing {
- * {static} + coordinateMassive()
- * {static} + indexCells()
- * }
- * }
- * namespace Arithmetic {
- * class Arithmetic.NumberSystem {
- * {static} + getCharNum()
- * {static} + getNumChar()
- * }
- * }
- * Sudoku.Cells -up-|> javafx.scene.layout.GridPane
- * Sudoku.Cells -up.> Arithmetic.Indexing
- * Sudoku.Cells -up.> Arithmetic.NumberSystem
- * @enduml
- */
-public class Cell extends GridPane {
-    /**
-     * Размер box судоку.
-     */
-    private int sizeBox;
-    /**
-     * Размер столбца или строки судоку.
-     */
-    private int size;
+import javax.swing.*;
+import java.awt.*;
+
+import static arithmetic.Graphics.*;
+import static arithmetic.NumberSystem.getCharNum;
+
+public class Cell extends JPanel implements Cloneable {
+    private int val, sizeBox;
+    private int[][] candidates;
+    private Font defaultFont = new Font("Arial", Font.PLAIN, 1);
+    private Color[][] candidatesColor;
+    private Color valColor = Color.BLACK;
+    private boolean visibleCandidates = true, visibleValue = true;
 
 
-    /**
-     * Кандидаты.
-     */
-    private Text[] candidates;
-    /**
-     * Значение клетки.
-     */
-    private Text cellVal;
-    /**
-     * Место, где хранятся {@link Cell#candidates}.
-     */
-    private GridPane gridPane;
+    public Cell(int sizeBox) {
+        this(sizeBox, 0);
+    }
 
-    /**
-     * Множитель увеличения.
-     * <p>
-     * Им можно контролировать размер клетки.
-     */
-    private double scale = 1;
-    /**
-     * То, во сколько раз расширяется модель, для решения проблем со шрифтами.
-     */
-    private final double RENDERING_SIZE = 20;
-    /**
-     * Фиксированное значение размера {@link Cell} и {@link Cell#gridPane}.
-     */
-    private final double GRID_PANE_SCALE = 4;
-    /**
-     * Размер шрифтов.
-     */
-    private final double FONT_SCALE = 75;
-
-    /**
-     * Создание объекта {@link Cell}
-     *
-     * @param sizeBox  размер box клетки.
-     * @param valCells значение клетки.
-     */
-    public Cell(@NamedArg(value = "sizeBox", defaultValue = "3") int sizeBox, @NamedArg(value = "valCells", defaultValue = "0") int valCells) {
-        setStyle(getGridPaneSize());
+    public Cell(int sizeBox, int val) {
         setSizeBox(sizeBox);
-        setCellVal(valCells);
-        setColorBorder(Color.BLACK);
-    }
-
-
-    /**
-     * Получить размер {@link Cell} и {@link Cell#gridPane}.
-     *
-     * @return размер {@link Cell} и {@link Cell#gridPane}.
-     */
-    private String getGridPaneSize() {
-        return "-fx-min-width: " + GRID_PANE_SCALE * RENDERING_SIZE + "em; -fx-min-height: " + GRID_PANE_SCALE * RENDERING_SIZE + "em;";
+        setVal(val);
     }
 
     /**
-     * Получить размер {@link Cell#cellVal}.
-     *
-     * @return размер {@link Cell#cellVal}.
+     * @throws IllegalArgumentException candidates и {@link Cell#candidates} имеют разные глубины
+     * @throws IllegalArgumentException candidates не является простым
+     * @throws IllegalArgumentException candidates имеет размер не равный int[{@link Cell#sizeBox}][{@link Cell#sizeBox}]
      */
-    private String getCellValSize() {
-        return "-fx-font-size: " + FONT_SCALE * GRID_PANE_SCALE * RENDERING_SIZE + "%; ";
+    public Cell(int sizeBox, int val, int[][] candidates) throws IllegalArgumentException {
+        this(sizeBox, val);
+        setCandidates(candidates);
+    }
+
+    public void setDefaultFont(Font defaultFont) {
+        this.defaultFont = defaultFont.deriveFont(1.0F);
+        repaint();
+    }
+
+    public void setVal(int val) {
+        this.val = val;
+        repaint();
+    }
+
+    public int getVal() {
+        return val;
     }
 
     /**
-     * Получить размер {@link Cell#candidates}.
-     *
-     * @return размер {@link Cell#candidates}.
+     * @param candidates новые кандидаты клетки
+     * @throws IllegalArgumentException candidates и {@link Cell#candidates} имеют разные глубины
+     * @throws IllegalArgumentException candidates не является простым
+     * @throws IllegalArgumentException candidates имеет размер не равный int[{@link Cell#sizeBox}][{@link Cell#sizeBox}]
      */
-    private String getCandidateSize() {
-        return "-fx-font-size: " + (FONT_SCALE * GRID_PANE_SCALE) / sizeBox * RENDERING_SIZE + "%;";
+    public void setCandidates(int[][] candidates) throws IllegalArgumentException {
+        ArraysCalculator.checkEvenArrayException(candidates, sizeBox, sizeBox);
+
+        for (int i = 0; i < sizeBox; ++i) {
+            System.arraycopy(candidates[i], 0, this.candidates[i], 0, sizeBox);
+        }
+        repaint();
     }
 
+    public void setVisibleCandidates(boolean visibleCandidates) {
+        this.visibleCandidates = visibleCandidates;
+        repaint();
+    }
 
-    /**
-     * Задать значение для {@link Cell#sizeBox}.
-     *
-     * @param sizeBox новое значение для {@link Cell#sizeBox}.
-     */
+    public boolean isVisibleCandidates() {
+        return visibleCandidates;
+    }
+
+    public void setVisibleValue(boolean visibleValue) {
+        this.visibleValue = visibleValue;
+        repaint();
+    }
+
+    public boolean isVisibleValue() {
+        return visibleValue;
+    }
+
+    public int[][] getCandidates() {
+        return candidates;
+    }
+
+    public void setCandidate(int val, int i, int j) {
+        candidates[i][j] = val;
+        repaint();
+    }
+
+    public int getCandidate(int i, int j) {
+        return candidates[i][j];
+    }
+
     public void setSizeBox(int sizeBox) {
         this.sizeBox = sizeBox;
-        size = sizeBox * sizeBox;
-        if (getChildren().size() != 0)
-            getChildren().remove(0, getChildren().size());
-
-        gridPane = new GridPane();
-        gridPane.setStyle(getGridPaneSize());
-        for (int i = 0; i < sizeBox; i++) {
-            final ColumnConstraints columnConstraints = new ColumnConstraints();
-            columnConstraints.setHgrow(Priority.SOMETIMES);
-            gridPane.getColumnConstraints().add(columnConstraints);
-
-            final RowConstraints rowConstraints = new RowConstraints();
-            rowConstraints.setVgrow(Priority.SOMETIMES);
-            gridPane.getRowConstraints().add(rowConstraints);
+        candidates = new int[sizeBox][sizeBox];
+        candidatesColor = new Color[sizeBox][sizeBox];
+        for (int i = 0; i < sizeBox; ++i) {
+            for (int j = 0; j < sizeBox; ++j) {
+                candidatesColor[i][j] = Color.BLACK;
+            }
         }
-
-        add(gridPane, 0, 0);
-        setHalignment(gridPane, HPos.CENTER);
-        setValignment(gridPane, VPos.CENTER);
-        candidates = new Text[size];
-        for (int i = 0; i < size; ++i) {
-            candidates[i] = new Text(NumberSystem.getCharNum(i + 1));
-            setHalignment(candidates[i], HPos.CENTER);
-            setValignment(candidates[i], VPos.CENTER);
-            candidates[i].setOpacity(0);
-            candidates[i].setStyle(getCandidateSize());
-            gridPane.add(candidates[i], Indexing.coordinateMassive(i, sizeBox)[1], Indexing.coordinateMassive(i, sizeBox)[0]);
-        }
-
-        cellVal = new Text(NumberSystem.getCharNum(0));
-        cellVal.setStyle(getCellValSize());
-
-        setHalignment(cellVal, HPos.CENTER);
-        setValignment(cellVal, VPos.CENTER);
-        add(cellVal, 0, 0);
+        repaint();
     }
 
-    /**
-     * Задать значение для {@link Cell#cellVal}.
-     *
-     * @param cellVal новое значение для {@link Cell#cellVal}.
-     */
-    public void setCellVal(int cellVal) {
-        this.cellVal.setText(NumberSystem.getCharNum(cellVal));
-    }
-
-    /**
-     * Задать значение для {@link Cell#scale}.
-     *
-     * @param scale новое значение для {@link Cell#scale}.
-     */
-    public void setScale(double scale) {
-        this.scale = scale;
-        setScaleX(1 / (RENDERING_SIZE / scale));
-        setScaleY(1 / (RENDERING_SIZE / scale));
-    }
-
-    /**
-     * Получить значение {@link Cell#sizeBox}.
-     *
-     * @return значение {@link Cell#sizeBox}.
-     */
     public int getSizeBox() {
         return sizeBox;
     }
 
     /**
-     * Получить значение {@link Cell#cellVal}.
-     *
-     * @return значение {@link Cell#cellVal}.
+     * @param candidatesColor новые цвета для всех кандидатов
+     * @throws IllegalArgumentException candidatesColor и {@link Cell#candidatesColor} имеют разные глубины
+     * @throws IllegalArgumentException candidatesColor не является простым
+     * @throws IllegalArgumentException candidatesColor имеет размер не равный Color[{@link Cell#sizeBox}][{@link Cell#sizeBox}]
      */
-    public int getCellVal() {
-        return NumberSystem.getNumChar(cellVal.getText());
+    public void setCandidatesColor(Color[][] candidatesColor) throws IllegalArgumentException {
+        ArraysCalculator.checkEvenArrayException(candidates, sizeBox, sizeBox);
+
+        for (int i = 0; i < sizeBox; ++i) {
+            System.arraycopy(candidatesColor[i], 0, this.candidatesColor[i], 0, sizeBox);
+        }
+        repaint();
+    }
+
+    public Color[][] getCandidatesColor() {
+        return candidatesColor;
+    }
+
+    public void setCandidateColor(Color candidateColor, int i, int j) {
+        this.candidatesColor[i][j] = candidateColor;
+        repaint();
+    }
+
+    public Color getCandidateColor(int i, int j) {
+        return candidatesColor[i][j];
+    }
+
+    public void setValColor(Color valColor) {
+        this.valColor = valColor;
+        repaint();
+    }
+
+    public Color getValColor() {
+        return valColor;
     }
 
     /**
-     * Получить значение {@link Cell#scale}.
-     *
-     * @return значение {@link Cell#scale}.
+     * @param cell клетка, информацию с которой нужно скопировать
+     * @throws IllegalArgumentException разные {@link Cell#sizeBox}
      */
-    public double getScale() {
-        return scale;
+    public void pasteInformation(Cell cell) throws IllegalArgumentException {
+        setBackground(cell.getBackground());
+        setVal(cell.getVal());
+        setValColor(cell.getValColor());
+        setCandidates(cell.getCandidates());
+        setVisibleValue(cell.isVisibleValue());
+        setVisibleCandidates(cell.isVisibleCandidates());
+        setCandidatesColor(cell.getCandidatesColor());
     }
 
-
-    /**
-     * Активировать(Сделать видимыми) {@link Cell#candidates}.
-     *
-     * @param ids id {@link Cell#candidates}, которые нужно активировать.
-     */
-    public void activateCandidate(int... ids) {
-        for (int id : ids)
-            candidates[id].setOpacity(1);
+    @Override
+    public Cell clone() throws CloneNotSupportedException {
+        super.clone();
+        Cell cloneCell = new Cell(sizeBox);
+        try {
+            cloneCell.pasteInformation(this);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        cloneCell.setBounds(getBounds());
+        return cloneCell;
     }
 
-    /**
-     * Деактивировать(Сделать невидимыми) {@link Cell#candidates}.
-     *
-     * @param ids id {@link Cell#candidates}, которые нужно деактивировать.
-     */
-    public void deactivateCandidate(int... ids) {
-        for (int id : ids)
-            candidates[id].setOpacity(0);
-
+    private void setMaxSizeFont(Graphics2D g2d, int sizeBox) {
+        setMaxSizeFontContainer(g2d, getWidth() / (float) sizeBox, getHeight() / (float) sizeBox, "0");
     }
 
-    /**
-     * Активировать(Сделать видимыми) все {@link Cell#candidates}.
-     */
-    public void deactivateAllCandidate() {
-        for (Text candidate : candidates)
-            candidate.setOpacity(0);
-
+    private float calculateX(double zeroX, Graphics2D g2d, String text, int sizeBox) {
+        return calculateStringMiddleXInContainer(zeroX, g2d, text, getWidth() / (double) sizeBox);
     }
 
-    /**
-     * Деактивировать(Сделать невидимыми) все {@link Cell#candidates}.
-     */
-    public void activateAllCandidate() {
-        for (Text candidate : candidates)
-            candidate.setOpacity(1);
-
+    private float calculateY(double zeroY, Graphics2D g2d, int sizeBox) {
+        return calculateStringMiddleYInContainer(zeroY, g2d, getHeight() / (double) sizeBox);
     }
 
-    public void setColorCellVal(Color colorCellVal) {
-        cellVal.setStyle(getCellValSize() + "-fx-fill: " + FXManipulate.getRGBAModel(colorCellVal) + ";");
+    private void drawCandidates(Graphics2D g2d) {
+        g2d.setFont(defaultFont);
+        setMaxSizeFont(g2d, sizeBox);
+
+        for (int i = 0; i < sizeBox; ++i)
+            for (int j = 0; j < sizeBox; ++j) {
+                g2d.setColor(candidatesColor[j][i]);
+                g2d.drawString(getCharNum(candidates[j][i]),
+                        calculateX(i * (getWidth() / (double) sizeBox), g2d, getCharNum(candidates[j][i]), sizeBox),
+                        calculateY(j * (getHeight() / (double) sizeBox), g2d, sizeBox));
+            }
     }
 
-    public void setColorBorder(Color colorBorder) {
-        setBorder(new Border(new BorderStroke(colorBorder, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(RENDERING_SIZE, RENDERING_SIZE, RENDERING_SIZE, RENDERING_SIZE))));
+    private void drawVal(Graphics2D g2d) {
+        g2d.setFont(defaultFont);
+        setMaxSizeFont(g2d, 1);
+        g2d.setColor(valColor);
+        g2d.drawString(getCharNum(val),
+                calculateX(0, g2d, getCharNum(val), 1),
+                calculateY(0, g2d, 1));
     }
 
-    public void setColorCandidates(Color... colorCandidates) {
-        for (int i = 0; i < colorCandidates.length; ++i)
-            candidates[i].setStyle(getCandidateSize() + "-fx-fill: " + FXManipulate.getRGBAModel(colorCandidates[i]) + ";");
-    }
-
-    public void setColorCandidate(int id, Color colorCandidate) {
-        candidates[id].setStyle(getCandidateSize() + "-fx-fill: " + FXManipulate.getRGBAModel(colorCandidate) + ";");
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = createGraphics2D(g);
+        if (visibleCandidates) {
+            drawCandidates(g2d);
+        }
+        if (visibleValue) {
+            drawVal(g2d);
+        }
     }
 }
-
