@@ -1,0 +1,147 @@
+package sudoku.solver;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class DancingLinks {
+
+    private ColumnNode header;
+    private List<DancingNode> answer;
+    private int size;
+
+    private int[][] result;
+    private int q;
+    private int requiredQ;
+
+    private void search(int k) {
+        if (q > requiredQ)
+            return;
+        if (header.R == header) {
+            q++;
+            handleSolution(answer);
+        } else {
+            ColumnNode c = selectColumnNodeHeuristic();
+            c.cover();
+
+            for (DancingNode r = c.D; r != c; r = r.D) {
+                answer.add(r);
+
+                for (DancingNode j = r.R; j != r; j = j.R) {
+                    j.C.cover();
+                }
+
+                search(k + 1);
+
+                r = answer.remove(answer.size() - 1);
+                c = r.C;
+
+                for (DancingNode j = r.L; j != r; j = j.L) {
+                    j.C.uncover();
+                }
+            }
+            c.uncover();
+        }
+    }
+
+    private ColumnNode selectColumnNodeHeuristic() {
+        int min = Integer.MAX_VALUE;
+        ColumnNode ret = null;
+        for (ColumnNode c = (ColumnNode) header.R; c != header; c = (ColumnNode) c.R) {
+            if (c.size < min) {
+                min = c.size;
+                ret = c;
+            }
+        }
+        return ret;
+    }
+
+    private ColumnNode makeDLXBoard(boolean[][] grid) {
+        final int COLS = grid[0].length;
+
+        ColumnNode headerNode = new ColumnNode("header");
+        List<ColumnNode> columnNodes = new ArrayList<>();
+
+        for (int i = 0; i < COLS; i++) {
+            ColumnNode n = new ColumnNode(Integer.toString(i));
+            columnNodes.add(n);
+            headerNode = (ColumnNode) headerNode.hookRight(n);
+        }
+        headerNode = headerNode.R.C;
+
+        for (boolean[] aGrid : grid) {
+            DancingNode prev = null;
+            for (int j = 0; j < COLS; j++) {
+                if (aGrid[j]) {
+                    ColumnNode col = columnNodes.get(j);
+                    DancingNode newNode = new DancingNode(col);
+                    if (prev == null)
+                        prev = newNode;
+                    col.U.hookDown(newNode);
+                    prev = prev.hookRight(newNode);
+                    col.size++;
+                }
+            }
+        }
+
+        headerNode.size = COLS;
+
+        return headerNode;
+    }
+
+    DancingLinks(boolean[][] cover) {
+        header = makeDLXBoard(cover);
+    }
+
+    public void runSolver(int size, int requiredQ) {
+        this.size = size;
+        answer = new LinkedList<>();
+        q = 0;
+        this.requiredQ = requiredQ;
+        search(0);
+    }
+
+    public void runQuantity(int size, int constraint) {
+        this.size = size;
+        answer = new LinkedList<>();
+        q = 0;
+        requiredQ = 10001;
+        search(0);
+    }
+
+    private void handleSolution(List<DancingNode> answer) {
+        if (requiredQ == q)
+            result = parseBoard(answer);
+    }
+
+    public int[][] getResult() {
+        return result;
+    }
+
+    public int getQ() {
+        return q;
+    }
+
+    private int[][] parseBoard(List<DancingNode> answer) {
+        int[][] result = new int[size][size];
+        for (DancingNode n : answer) {
+            DancingNode rcNode = n;
+            int min = Integer.parseInt(rcNode.C.name);
+            for (DancingNode tmp = n.R; tmp != n; tmp = tmp.R) {
+                int val = Integer.parseInt(tmp.C.name);
+                if (val < min) {
+                    min = val;
+                    rcNode = tmp;
+                }
+            }
+            int ans1 = Integer.parseInt(rcNode.C.name);
+            int ans2 = Integer.parseInt(rcNode.R.C.name);
+            int r = ans1 / size;
+            int c = ans1 % size;
+            int num = (ans2 % size) + 1;
+            result[r][c] = num;
+        }
+        return result;
+
+    }
+}
