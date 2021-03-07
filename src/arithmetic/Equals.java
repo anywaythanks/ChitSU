@@ -20,4 +20,8 @@ public class Equals {
                 return true;
         return false;
     }
+
+    public static boolean isValidName(String s, int min, int max) {
+        return min < s.length() && s.length() <= max;
+    }
 }
